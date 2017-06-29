@@ -127,6 +127,28 @@ features, here is how I've got it running.
    press =<TAB>= to expand the snippet and I am good to go. The
    template even parses the post title and automatically creates
    a pretty url.
+   
+** Full management from Emacs
+   The last slightly annoying thing is the need of switching the
+   python environment and running =nikola auto=.  Mike Zamansky has
+   suggested using [[https://github.com/rejeep/prodigy.el][prodigy]], which is a very nice package I have
+   started using recently for running [[https://www.npmjs.com/package/imapnotify][imapnotify]] and [[http://jonls.dk/redshift/][redshift]] (check
+   them out, if you don't know them yet).
+
+   The issue with Mike's solution is the need to manually set the
+   Emacs virtualenv. I have played with it a bit and found a
+   simple prodigy-only way.
+   
+   #+BEGIN_SRC elisp
+     (prodigy-define-service
+       :name "Nikola"
+       :command "nikola"
+       :args (list "auto")
+       :cwd "/path_to_the/nikola_blog/"
+       :tags '(nikola)
+       :init '(lambda () (pyvenv-workon "blog"))
+       :kill-signal 'sigkill)
+   #+END_SRC
 
 * Other stuff
 

@@ -257,6 +257,35 @@ a pretty url.
 </p>
 </div>
 </div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Full management from Emacs</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+The last slightly annoying thing is the need of switching the
+python environment and running <code>nikola auto</code>.  Mike Zamansky has
+suggested using <a href="https://github.com/rejeep/prodigy.el">prodigy</a>, which is a very nice package I have
+started using recently for running <a href="https://www.npmjs.com/package/imapnotify">imapnotify</a> and <a href="http://jonls.dk/redshift/">redshift</a> (check
+them out, if you don't know them yet).
+</p>
+
+<p>
+The issue with Mike's solution is the need to manually set the
+Emacs virtualenv. I have played with it a bit and found a
+simple prodigy-only way.
+</p>
+
+<div class="highlight"><pre><span></span>(prodigy-define-service
+  :name "Nikola"
+  :command "nikola"
+  :args (list "auto")
+  :cwd "/path_to_the/nikola_blog/"
+  :tags '(nikola)
+  :init '(lambda () (pyvenv-workon "blog"))
+  :kill-signal 'sigkill)
+</pre></div>
+</div>
+</div>
 </div>
 
 <div id="outline-container-sec-3" class="outline-2">
