@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Blogity blog">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>serycjon's blog (old posts, page 2) | serycjon's blog</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="https://serycjon.github.io/index-2.html">
+<link rel="prev" href="index-3.html" type="text/html">
+<link rel="next" href="index-1.html" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://serycjon.github.io/">
+
+                <span id="blog-title">serycjon's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="archive.html">Archive</a>
+                </li>
+<li>
+<a href="categories/">Tags</a>
+                </li>
+<li>
+<a href="rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+
+    
+
+
+    
+<div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/11/nucleo-pokus-druhy/" class="u-url">nucleo, pokus druhy</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/11/nucleo-pokus-druhy/" rel="bookmark"><time class="published dt-published" datetime="2015-11-08T15:55:00+01:00" title="2015-11-08 15:55">2015-11-08 15:55</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Po predchozim neuspechu a vzhledem k nedostatku casu jsem to dal uz moc nehrotil a stahl z webu katedry aplikaci osciloskop, abych ji ozkousel.<br><br>nucleova cast v pohode, ale aplikace pro pc je napsana jenom pro windows a s wine ji sice rozbeham, ale nevidi to kit... :(<br><br>Podarilo se mi ozivit sestry stary pocitac a spustit ji tam...<br><br>Trivialni pripad s dratem z generatoru primo na osciloskop fungoval v pohode, tak jsem se pustil do experimentovani...<br><br></p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-0mIEyOVt2rk/Vj9vccB71AI/AAAAAAAAKfY/Af_tDB9gVcg/s1600/20151107_132943.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="http://2.bp.blogspot.com/-0mIEyOVt2rk/Vj9vccB71AI/AAAAAAAAKfY/Af_tDB9gVcg/s320/20151107_132943.jpg" width="320"></a></div>
+<div class="separator" style="clear: both; text-align: left;">Zde racte videti, jak si osciloskopem zkoumam, jak blika IR LED na dalkovem ovladaci od televize.</div>
+<div class="separator" style="clear: both; text-align: left;">Ani nic nezacalo smrdet a vybuchovat, takze jsem to pozapojoval asi spravne... :)</div>
+<br>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/10/nucleo-first-steps/" class="u-url">Nucleo first steps</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/10/nucleo-first-steps/" rel="bookmark"><time class="published dt-published" datetime="2015-10-30T12:05:00+01:00" title="2015-10-30 12:05">2015-10-30 12:05</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>prvni krucky s STM32F303 Nucleo...<br><br>1) pripojil jsem kit k pocitaci a ejhle - hned se zjevil jako usb-storage.<br>primountoval jsem a byl tam akorat soubor mbed.htm, ktery me odkazal na mbedi web, kde jsem se zaregistroval. Dokonce mi to rovnou nastavilo spravne device...<br><br>pak jsem zkusil rozbehat prvni priklad - blikani onboard ledkou... nejdriv neslo sbuildovat, kvuli chybejicimu device.h, nebo tak neco, ale po updatovani mbed knihovny uz to slo v pohode. Sbuildovalo, dalo mi to ke stazeni binarku. Soupl jsem to na Nucleo a ejhle - blika :)<br>pro zkousku jsem zmenil frekvenci blikani a prebuildil a funguje.<br><br>2) webove rozhrani je sice hezke, ale hrozne tezkopadne... jdu koumat, jak to rozchodit lokalne<br><br>budu postupovat podle http://regalis.com.pl/en/arm-cortex-stm32-gnulinux/ <br><br>crosscompiler<br>$ sudo apt-get install gcc-arm-none-eabi<br>debugger<br>$ sudo apt-get install gdb-arm-none-eabi<br>instalace se nepodarila, kvuli bugu v balicku - konflikt v manualovych strankach...<br>nasel jsem workaround:<br></p>
+<div id="yui_3_10_3_1_1445974154679_252">$ sudo apt-get -o Dpkg::Options:<wbr></wbr>:="--force-<wbr></wbr>overwrite" install gdb-arm-<wbr></wbr>none-eabi</div>
+<div id="yui_3_10_3_1_1445974154679_252">pak uz se to podarilo, snad jsem nic moc nepokonil...<br><br>stahl jsem si STM32cubeF3 <br>http://www.st.com/web/en/catalog/tools/PF260613#<br><br>zacetl se do navodu a prozatim to po par hodinach vzdal...</div>
+<div id="yui_3_10_3_1_1445974154679_252"></div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/10/osciloskop/" class="u-url">Osciloskop!!!</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/10/osciloskop/" rel="bookmark"><time class="published dt-published" datetime="2015-10-27T07:07:00+01:00" title="2015-10-27 07:07">2015-10-27 07:07</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div dir="ltr">Dneska jsme na cviceni obrazovych senzoru pouzivali <b>osciloskop</b> :) Bylo to uplne žůžastický :). Nase neskryvane nadseni muzete posoudit na prilozenem selficku :).</div>
+<div dir="ltr">Na druhou stranu jsem ale domeroval, co jsem zameskal v birminghamu, a byl tak ve skole tak dlouho, ze uz jsem ani nejezdil domu a prespal v dejvicich u dedecka a babicky... :) ze jsem je zase jednou navstivil, :( ze jsem byl uz zase ve skole po zamykaci dobe... chjo...</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://lh3.googleusercontent.com/-nnhIa3mg8Gc/Vi8isDaN7qI/AAAAAAAAKMk/xDmnIpgTc70/s1600/20151026_193903.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"> <img border="0" src="http://lh3.googleusercontent.com/-nnhIa3mg8Gc/Vi8isDaN7qI/AAAAAAAAKMk/xDmnIpgTc70/s640/20151026_193903.jpg"></a> </div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/10/moje-vesela-prihoda-z-tramvaje/" class="u-url">Moje vesela prihoda z tramvaje</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/10/moje-vesela-prihoda-z-tramvaje/" rel="bookmark"><time class="published dt-published" datetime="2015-10-26T09:30:00+01:00" title="2015-10-26 09:30">2015-10-26 09:30</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>(promin, Lado, jestli ti zase prislo upozorneni. Nevim, proc to chodi a co s tim mam delat...) <br><br>Vcera jsem jel z trojdenky z hlavaku domu tramvaji a na Vytoni se vedle me uvolnilo jedno misto, tak jsem poustoupil, abych batohem neblokoval nikoho, kdo by si tam chtel sednout... Kouknu napravo, tam se vsichni tvari, ze sedet nechteji. Kouknu nalevo a tam stoji chlapik (vek neumim urcovat, ale 30-40 odhaduju) a rukou naznacuje, at si jdu sednout... Jenze ja prave uhybal, aby si tam sedl nekdo jiny, tak jsem mu naznacil, at si jde sednout on.<br>Na to on zamrmlal cca: "takze tu jako budeme stat?". Tak jsem rekl, ze si o to muzeme strihnout. I stalo se. Nastesti nedoslo k trapne situaci, ze by nekdo pocital do ctyr (schodli jsme se jenom na kamen nuzky papir, bez ted). Ve ctvrtem kole vyhral, takze si sel sednout on :D. Tim nase interakce skoncila.<br>Vtipny, no ne?</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/10/birmingham-den-sesty/" class="u-url">Birmingham - den sesty</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/10/birmingham-den-sesty/" rel="bookmark"><time class="published dt-published" datetime="2015-10-14T00:26:00+02:00" title="2015-10-14 00:26">2015-10-14 00:26</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Utery...<br><br>probudili jsme se celkem pozde, jak jsme vecer koukali na film...<br><br>rano jsem jeste vyfotil mistni zasuvky, protoze jsem s hruzou zjistil, ze nekteri mi ctenari vubec nevi, jak tady vypadaji :D <br><a href="http://1.bp.blogspot.com/-3jwKTcpMLXk/Vh2P2NWFqOI/AAAAAAAAKA8/MrkG1AXDezI/s1600/20151013_105926.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="240" src="http://1.bp.blogspot.com/-3jwKTcpMLXk/Vh2P2NWFqOI/AAAAAAAAKA8/MrkG1AXDezI/s320/20151013_105926.jpg" width="320"></a><br><br><a href="http://1.bp.blogspot.com/-_J9UNxZ5QiQ/Vh2P2CsQnCI/AAAAAAAAKA8/L5FVyhbIwD4/s1600/20151013_110257.jpg" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" height="150" src="http://1.bp.blogspot.com/-_J9UNxZ5QiQ/Vh2P2CsQnCI/AAAAAAAAKA8/L5FVyhbIwD4/s200/20151013_110257.jpg" width="200"></a><br><br><br><br><br><br><br><br><br><br><br></p>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<br>zabalil jsem si (zadne pohorky :) ), napsal vzkaz Ide a Svenje a vyrazili jsme. Posledni moje jizda na cerno, opet bez problemu. Cestou jsme jeli kousek od dvou vezi, ktere inspirovali Tolkiena ke dvoum vezim (surprajz, surpraaajz), ale z busu nebyly videt a uz nebyl cas tam vystupovat a hledat je.<br><br>V tescu jsme koupili chleba na cestu a pak ve vedlejsim obchode salat v kbelicku a plesnivej syr. (S mazadlama a dalsima vecma na chleba je to tu ultrabydny... vubec zadny vyber...). Vyslo to celkem levne a na cestu domu by to melo stacit.<br><br>Pak jsme sli hledat do Bullringu nejaky fish&amp;chipsy, kde bychom si dali obed a pritom tuhle anglickou ptakovinu prvne ochutnali... nenasli jsme, ale sehnali jsme prima bagety za 99p, takze pohoda.<br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-HwcxIwfdlhw/Vh2QgdXtFVI/AAAAAAAAKBE/-qJBvk4EbBg/s1600/20151013_131925.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="http://3.bp.blogspot.com/-HwcxIwfdlhw/Vh2QgdXtFVI/AAAAAAAAKBE/-qJBvk4EbBg/s640/20151013_131925.jpg" width="640"></a></div>
+<br>Pak uz jsme sli kolem st. Martina a trznice na coach station, kdezto jsme se rozloucili. :(.<br><br>Cesta coachem byla celkem kratka, nebot jsem vetsinu prospal (i kdyz jsem puvodne planoval delat ukoly a dohanet praci). V Lutonu jsem pak mel par hodin k dobru, tak jsem nejdriv zkusil delat ukol na GMM, ktery jsem mel vytisknuty, ale moc se mi nedarilo a byl jsem sesly, tak jsem snedl pulku chleba a salat. Pak jsem napsal kus blogu, ale nepodarilo se ho pres letistni free wifi na pul hodiny publikovat. Pak uz byl cas jit na odbaveni, nebo jak se tomu rika. druhou pulku chleba i syra jsem pronesl v pohode a za dalsi pul hodinu uz byly spasene. Pak jeste na zachode natocit vodu a uz byl cas odebrat se ke gate. Nastup do letadla... cesta... mel jsem na mobilu zapnutou gps a cely let jsem si nahraval a obdivoval nastoupane kilometry vysky a rychlost a vsechno... pristani.<br>Tatka me vyzvedl na letisti a uz jsem doma.<br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-0HdOI9HRvaA/Vh2Qy6WumSI/AAAAAAAAKBM/QBeMN9-3d3M/s1600/20151013_204332.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="http://3.bp.blogspot.com/-0HdOI9HRvaA/Vh2Qy6WumSI/AAAAAAAAKBM/QBeMN9-3d3M/s320/20151013_204332.jpg" width="320"></a></div>
+<br>kaniec filma.<br>doplnene fotky v albu: <a href="https://goo.gl/photos/QAfRvTLPtZGxApdM6">https://goo.gl/photos/QAfRvTLPtZGxApdM6</a>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/10/birmingham-den-paty/" class="u-url">Birmingham - den paty</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/10/birmingham-den-paty/" rel="bookmark"><time class="published dt-published" datetime="2015-10-13T23:58:00+02:00" title="2015-10-13 23:58">2015-10-13 23:58</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div class="separator" style="clear: both; text-align: center;"></div>Pondeli...<br><br>toz... posledni poradny den. Meli jsme na programu dve veci. 1) vyprava do Hobitina 2) udovina pres skype<br><br>1) Hobitin, aneb cesta tam a zase zpatky<br>V nedeli vecer jsem v hlubokych utrobach tripadvisoru nasel jakysi Tolkien trail. Po chvilce googleni jsem zjistil ze Tolkien v Birminghamu zamlada zil a dost ho to tu ovlivnilo...<br><a href="http://visitbirmingham.com/files/2014-06-23/BirminghamTolkienTrailFORWEB.pdf">http://visitbirmingham.com/files/2014-06-23/BirminghamTolkienTrailFORWEB.pdf</a><br><br>nasel jsem v okoli par kesek a nektere z nich jsem se cele odpoledne neuspesne snazil lustit... Bylo to marny, tak jsme vyrazili aspon na ty nelustici...<br><div class="separator" style="clear: both; text-align: center;"></div>
+<br>Nechteli jsme platit 8 liber za listky a venku bylo hezky, tak jsme sli pesky. Bylo to pres 10 km pres pulku birminghamu, ale slo to. Cestou jsme si z dalky prohlidli krutoprisne vypadajici univerzitu a koupili si k obedu napul bagetu a dva cottage, kterezto byly pekne nechutne.<br><br>Taky jsme videli pekny holubnik a chlapika, ktery mel pred domem asi 50 popelnic. No nebylo to uplne nahodou. Byl to mistni zamozny dedek, ktery tim pry dava najevo svoji nadrazenost... Divny.<br><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-k0h0NXvuLZw/Vh2LQbehjmI/AAAAAAAAKAk/9vCEoml4qO4/s1600/20151012_134232.jpg" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" height="240" src="http://4.bp.blogspot.com/-k0h0NXvuLZw/Vh2LQbehjmI/AAAAAAAAKAk/9vCEoml4qO4/s320/20151012_134232.jpg" width="320"></a></div>
+<a href="http://2.bp.blogspot.com/-gDZlfwRtbTk/Vh2LQWGn49I/AAAAAAAAKAk/PEQz8s0oYq4/s1600/20151012_151406.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="320" src="http://2.bp.blogspot.com/-gDZlfwRtbTk/Vh2LQWGn49I/AAAAAAAAKAk/PEQz8s0oYq4/s320/20151012_151406.jpg" width="240"></a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>No dobre, je to uplne jinak - v Birminghamu prave probiha prechod z prehistorickeho zachazeni s odpadky na system s popelnicema... predtim se daly pred dum dve bedynky - jedna na triditelne veci adruha na zbytek a ted nove vsichni postupne fasujou dve popelnice, jake zname u nas. Jedna je na smes a druha ma v sobe mimo hlavni cast jeste dve prihradky a je na trideny odpad.<br><br>Po dlouhem tapani (tiapaanii) jsme dorazili k Moseley Bogu - suprova zalesnena bazinka, ktera inspirovala temny hvozd, a enty a spoustu takovyhlech veci. Bylo to tam uplne skely obzvlast na to, ze to bylo v centru mesta. Taky samo nejaky ty panoprstenovy a hobiti kesky...<br><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-PEWb2QbDnNU/Vh2LyqgAXPI/AAAAAAAAKAs/xDsGrERlAKM/s1600/20151012_160832.jpg" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" height="180" src="http://4.bp.blogspot.com/-PEWb2QbDnNU/Vh2LyqgAXPI/AAAAAAAAKAs/xDsGrERlAKM/s320/20151012_160832.jpg" width="320"></a></div>
+<a href="http://2.bp.blogspot.com/-zcprDtISqcs/Vh2LyqNxZcI/AAAAAAAAKAs/KOdYx7Sw51Q/s1600/20151012_160414.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="320" src="http://2.bp.blogspot.com/-zcprDtISqcs/Vh2LyqNxZcI/AAAAAAAAKAs/KOdYx7Sw51Q/s320/20151012_160414.jpg" width="240"></a><br><br><br><br><br><br><br><br><br><br><a href="http://2.bp.blogspot.com/-I4N-B-7hFBM/Vh2Lyp2j2SI/AAAAAAAAKAs/LM_dPVEs_6Y/s1600/20151012_161142.jpg" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" height="240" src="http://2.bp.blogspot.com/-I4N-B-7hFBM/Vh2Lyp2j2SI/AAAAAAAAKAs/LM_dPVEs_6Y/s320/20151012_161142.jpg" width="320"></a><br><br><br><br><br><br><br><br><br><br><br><a href="http://4.bp.blogspot.com/--YfmUGUX1NM/Vh2LyueS_fI/AAAAAAAAKAs/xn1KYUCBUEk/s1600/20151012_161926.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="150" src="http://4.bp.blogspot.com/--YfmUGUX1NM/Vh2LyueS_fI/AAAAAAAAKAs/xn1KYUCBUEk/s200/20151012_161926.jpg" width="200"></a><br><br><a href="http://2.bp.blogspot.com/-p39mh9Jqa1Y/Vh2LynJsJBI/AAAAAAAAKAs/n5Qz3RPk9Xs/s1600/20151012_161932.jpg" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" height="240" src="http://2.bp.blogspot.com/-p39mh9Jqa1Y/Vh2LynJsJBI/AAAAAAAAKAs/n5Qz3RPk9Xs/s320/20151012_161932.jpg" width="320"></a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-gSnG6avQrpk/Vh2Ji0Tf3EI/AAAAAAAAKAY/gxB3hhrQogM/s1600/20151012_165927.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="http://1.bp.blogspot.com/-gSnG6avQrpk/Vh2Ji0Tf3EI/AAAAAAAAKAY/gxB3hhrQogM/s320/20151012_165927.jpg" width="320"></a></div>
+<br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-0dBiG4HtjhU/Vh2Ji-T-6WI/AAAAAAAAKAY/lxvgpXVXgP4/s1600/20151012_165724.mp4" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="179" src="http://2.bp.blogspot.com/-0dBiG4HtjhU/Vh2Ji-T-6WI/AAAAAAAAKAY/lxvgpXVXgP4/s320/20151012_165724.mp4" width="320"></a></div>
+<a href="http://1.bp.blogspot.com/-JGVAGso8UWs/Vh2Ji2nfeMI/AAAAAAAAKAY/KReqJqdF95k/s1600/20151012_171420.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="240" src="http://1.bp.blogspot.com/-JGVAGso8UWs/Vh2Ji2nfeMI/AAAAAAAAKAY/KReqJqdF95k/s320/20151012_171420.jpg" width="320"></a>Pak jsme pokracovali k domu, kde Tolkien bydlel (nic zvlastniho, ani pametni deska, nebo tak neco), pres hobitin (teda asi... nekde to tam ma byt... videli jsme male domecky, tak asi tam :D), kde jsme mimo par hobitoidnich chlapiku potkali na ulici lisku (zivou, cervenou, fakt hezkou) az k Sarehole Mill, ktery Tolkiena taky hodne inspiroval. Zil tam v tom dome kus od mlyna od 4 do 8 let, takze tam musel mit uplne suprove detstvi. Prinejmensim bazinka byla fakt raj pro detske blbnuti...<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-6NbqdEAI0OE/Vh2Ji0S5fwI/AAAAAAAAKAY/92ghzf7zaOw/s1600/20151012_170919.jpg" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" height="240" src="http://3.bp.blogspot.com/-6NbqdEAI0OE/Vh2Ji0S5fwI/AAAAAAAAKAY/92ghzf7zaOw/s320/20151012_170919.jpg" width="320"></a></div>V mlynu je sice muzeum, ale netrefili jsme otviraci dobu, tak jsme jeste nakoukli do parku Shire (ano, ten hobiti Kraj) a pak uz na asi tyden starou groupticket odjeli s prestupem domu.<br><br>Cestou jeste jedna vtipna situace - na jedne zastavce ridic vypnul motor a sel ven asi na 10 minut kourit... tak jsme pockali, no :D...<br><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-pGqrw9OdSbI/Vh2Ji9lySJI/AAAAAAAAKAY/Bel4oOnhEDM/s1600/20151012_175502.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="320" src="http://4.bp.blogspot.com/-pGqrw9OdSbI/Vh2Ji9lySJI/AAAAAAAAKAY/Bel4oOnhEDM/s320/20151012_175502.jpg" width="240"></a></div>
+<span id="goog_38687337"></span><span id="goog_38687338"></span><br>vecer byla udovina, skype nefungoval, jak jsme chteli, nalada byla pitoma, no nic moc... pak jsme se uplne vecer koukli na tmavomodry svet.<br><br><br>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/10/birmingham-den-ctvrty/" class="u-url">Birmingham - den ctvrty</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/10/birmingham-den-ctvrty/" rel="bookmark"><time class="published dt-published" datetime="2015-10-12T22:04:00+02:00" title="2015-10-12 22:04">2015-10-12 22:04</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Nedele...<br>Rano jsme vstavali brzo, abychom stihli msi v nedalekem kostele. Prisli jsme akorat. U vchodu nam dali zpevnik a papir se vsema textama a odpovedma, takze jsme vedeli, co se tam rika a nebyli za trapky.<br><br>Behem mse se dvakrat vybiralo, coz bylo dost matouci. Jednou do cervenych a jednou do modrych vybiracku. Zajimave bylo i prijimani, ktere bylo pod oboji a pani s kalichem stala kus vedle a skoro vsichni kolem prosli jen tak... nevim, jestli si ji nevsimli, nebo nechteli? Zvlastni.<br><br>K obedu jsme meli cocku s cibulkou a vejcetem na tvrdo, coz sice v porovnani se zeleninovo-dynovo-syrovyma hodama, ktere vedle konzumovala Svenja nevypadalo moc vabne, ale bylo to superdobry :)<br><br>Po obede jsme se vydali lovit kesky do parku za ASDu. Vlastne nejdriv jsme nasli kesku u rezervoiru (klubko uz ji predtim hledala nekolikrat a spolecne uz jsme taky jednou selhali) - ale podarilo se nam vygooglit, ze MTT v napovede znamena Multi Trunk Tree a pak uz to slo lip.<br><br><a href="http://3.bp.blogspot.com/-TygGQ4jSjIE/Vhwf4JkyhHI/AAAAAAAAJ9Q/B-Qecz6E-0Y/s1600/20151011_160003.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="240" src="http://3.bp.blogspot.com/-TygGQ4jSjIE/Vhwf4JkyhHI/AAAAAAAAJ9Q/B-Qecz6E-0Y/s320/20151011_160003.jpg" width="320"></a>V tom parku jsme pak shrabli dalsi tri a v jedne z nich nechali TB Albiho Durera. (majitele TB nam pak napsali mejl, ze je super, ze jsme vyfotili Albiho s obrazama a ze to jinak lidi moc nedelaj... mel v zadani fotit se s umenim, tak jsem mu doma poridil par selficek s dedeckovejma obrazama)<br><br></p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-nBognkhJVRE/Vhwf4MRWyRI/AAAAAAAAJ9Q/jq7iG_j_G9o/s1600/20151007_221834.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="http://4.bp.blogspot.com/-nBognkhJVRE/Vhwf4MRWyRI/AAAAAAAAJ9Q/jq7iG_j_G9o/s640/20151007_221834.jpg" width="640"></a></div>Jeste jsme cestou potkali zmrzlinove auto, ktere ale misto ceskeho "tada-dada-dedeceeek" hralo uplne jinou melodii :D<br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-PPb6YGuJ5M0/Vhwf4MxaT5I/AAAAAAAAJ9Q/yX6GretOOdc/s1600/20151011_152926.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="http://2.bp.blogspot.com/-PPb6YGuJ5M0/Vhwf4MxaT5I/AAAAAAAAJ9Q/yX6GretOOdc/s640/20151011_152926.jpg" width="640"></a></div>
+<br>vecer byla paarty!<br>Seslo se nas na tu malou kuchynku celkem dost - Patricia ze spanelska, Estie z madarska, Hannah, Svenja, Vivien a Tabia z nemecka, Ida z rakouska a ja s klubickem. Schazeji se tady kazdy tyden a pokazde vari nekdo jiny. Tentokrat byla na rade Patricia a pripravila nam nejake tapas a pak tortillas de patatas. Bylo to dost dobre, ale nejlepsi na tom bylo, ze to nikdy predtim nedelala a ze to delala podle videonavodu, ktery ji poslala mamka... a behem vareni to jeste fotila a pres whatsapp, nebo neco takoveho, jeste online konzultovala... no sranda.<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-oJtg1RSZ41o/Vhwf4N5WfCI/AAAAAAAAJ9Q/l4LcO-MfvRc/s1600/20151011_151139.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="640" src="http://3.bp.blogspot.com/-oJtg1RSZ41o/Vhwf4N5WfCI/AAAAAAAAJ9Q/l4LcO-MfvRc/s640/20151011_151139.jpg" width="480"></a></div>Vareni trvalo celkem dlouho a skoro celou dobu tam zbytek lidi hrozne drbal... zensky... bes... kdybyste to jeste nevedeli, tak Natalie tam nebyla, i kdyz rikala, ze tam prijde, ale na posledni chvili to odvolala, protoze ma trable s pritelem. Ona se s nim uz chtela rozejit, protoze jim to neklapalo a byla na nej posledni dobou porad nastvana, ale najednou ji stal tady v anglii pred domem a 'surpraaajz'. No a ted u ni uz asi dva tydny bydli v pokoji, ale prijel si sem hledat praci. Nevi o tom, ze se s nim chce rozejit. Zjevne to neni moc bystry chlapec...<br>Prichazi opozdene Tabia - pojdme to prevypravet cele jeste jednou! ... no bes ...<br><br>Jeste jsem vyfasoval platek Jamonu, kteryzto byl excelentni, a klubicko udelala pro vsechny bananovy milkshake, ktery byl taky vyborny.<br><br>Pak uz se nejak vsechny zvedly a odesly. Tak jsme se sli s klubickem, Idou a Svenjou koukat na nejnovejsi dil dr. Who (Ida a Svenja jsou fanynky, my dva to nezname). Bylo to dost vtipny a pak uz jsme sli spat. Zase s matraci :)<br><br>Pridal jsem par fotek ze soboty a nedele do Birmingham alba:<br><a href="https://goo.gl/photos/QAfRvTLPtZGxApdM6">https://goo.gl/photos/QAfRvTLPtZGxApdM6</a> <br><br><br><br><div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-VLFXmyqbTEA/Vhwf4CZzq2I/AAAAAAAAJ9Q/RNFx89CCQVI/s1600/20151011_153803.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://1.bp.blogspot.com/-VLFXmyqbTEA/Vhwf4CZzq2I/AAAAAAAAJ9Q/RNFx89CCQVI/s320/20151011_153803.jpg" width="240"></a><a href="http://2.bp.blogspot.com/-jN0tA_noTi4/Vhwf4AfgWDI/AAAAAAAAJ9Q/ipZ3bJmyvcQ/s1600/20151011_162537.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="180" src="http://2.bp.blogspot.com/-jN0tA_noTi4/Vhwf4AfgWDI/AAAAAAAAJ9Q/ipZ3bJmyvcQ/s320/20151011_162537.jpg" width="320"></a>
+</div>
+<br><br><br>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/10/birmingham-3/" class="u-url">Birmingham - den treti</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/10/birmingham-3/" rel="bookmark"><time class="published dt-published" datetime="2015-10-12T20:26:00+02:00" title="2015-10-12 20:26">2015-10-12 20:26</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>sobota...<br>sli jsme na nakup do ASDA (asi uz jsem psal, jak me ten nazev fascinuje). Cesta vedla pres primovy park... anglicky travnicek kam az oko dohledne, je to fakt moc hezky. Celkem prekvapive tam skoro nikdo nebyl... No na prvni lidi jsme narazili az u cvicitek - takove hriste s posilovacima udelatkama, na kterych jsme chvilku blbli. Az do te chvilky, co k nam prisvistel tak 10 letej kluk na kole a jeho snad jeste mladsi kamos na kolobrnde a ptali se, jestli nemame zapalovac. Kdyz jistili, ze jsme nekuraci, tak zase odsvisteli, ale v nasich myslenkach zustali naporad :D (byli fakt mali).<br></p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-J_JVwzx4VxM/VhwI1oFN5-I/AAAAAAAAJ88/VKLKSDeR2L4/s1600/20151010_123453.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="http://4.bp.blogspot.com/-J_JVwzx4VxM/VhwI1oFN5-I/AAAAAAAAJ88/VKLKSDeR2L4/s640/20151010_123453.jpg" width="640"></a></div>
+<br>Po cvicitkach jsme pokracovali dal parkem. Narazili jsme jeste na chlapka, co ucil nejakou zenskou jezdit na ctyrkolce... Na tom dokonalym travniku! No sileny...<br><br>Auto-moto exkurz po parku... Divna znacka Vauxhall vyrabejici uplne stejna auta, jako Opel... doma jsem to googlil a fakt proste Opel je v anglii Vauxhall. Divny.<br><br>Prichod k ASDe, snaha o pripojeni k nejake free wifine kvuli receptu na cuketove bramboraky - nepovedlo se. Nakoupili jsme celkem levne a zapomneli jsme jenom na cesnek. Po zaplaceni jsme pred obchodem videli nase zname kluky kuraky tentokrat uz s celym cyklogangem.<br><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-M72pKFmEn7I/VhwI1qgfkrI/AAAAAAAAJ88/JWaTxc_2SYg/s1600/20151010_135138.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="http://4.bp.blogspot.com/-M72pKFmEn7I/VhwI1qgfkrI/AAAAAAAAJ88/JWaTxc_2SYg/s640/20151010_135138.jpg" width="640"></a></div>
+<br>Cesta zpatky a diskuze nad napisem 'cul de sac' u nazvu nekterych ulic. Misteriozni, je to tu casto. Doma progoogleno a znamena to, ze je to slepa ulice. Divny.<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-MBYKOk66b0A/VhwI1r-3h7I/AAAAAAAAJ88/adN1EY8wGG4/s1600/20151010_141703.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="http://4.bp.blogspot.com/-MBYKOk66b0A/VhwI1r-3h7I/AAAAAAAAJ88/adN1EY8wGG4/s320/20151010_141703.jpg" width="320"></a></div>Po vylozeni nakupu doma jsme jeste zabehli do blizsiho obchodu pro ten cesnek, ktery jsme zapomneli vzit. Cestou jsem si nafotil hromadu zakazu (viz album) - zakazujou tady vsechno a vsude. Vtipny.<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-vnbaJ9zGf5I/VhwI1oAUhgI/AAAAAAAAJ88/pCc48wBCbDk/s1600/20151010_212433.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="640" src="http://3.bp.blogspot.com/-vnbaJ9zGf5I/VhwI1oAUhgI/AAAAAAAAJ88/pCc48wBCbDk/s640/20151010_212433.jpg" width="480"></a></div>Kdyz jsme meli vsechny ingredience, udelali jsme si testo a prvni varku cukynovych bramboraku, druha byla k veceri. Byly moc dobre a vyborne jsem si u toho procvicil nadhazovani z panvicky :D Celkem jsme zpracovali jenom asi pulku tech cuket, co jsme koupili na trhu...<br><br><a href="http://2.bp.blogspot.com/--P8iUVl4rQQ/VhwI1t1uMDI/AAAAAAAAJ88/bGgCY-FNH2Y/s1600/20151010_204433.jpg" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" height="240" src="http://2.bp.blogspot.com/--P8iUVl4rQQ/VhwI1t1uMDI/AAAAAAAAJ88/bGgCY-FNH2Y/s320/20151010_204433.jpg" width="320"></a>Po obede jsme sli do skoly (byl uz docela vecer, sobota a tak tam byli asi 3 lidi). Maji to tam vsechno desne moderni a vypada to fakt cool. Prohlidli jsme si knihovnu a Klubicko mi vytisknula zadani domaciho ukolu na Graphical Markov Models. Pak jsme navstivili kukan - takovou uzavrenou vec se stolem, kde se muze neco ve skupine resit a nerusi se tim ticho v knihovne. Vsude kde jsme sli se nam automaticky rozsvecela svetla a je tam vsude koberec. V jedne sekci, kde byli pomucky k vyuce, meli k pujceni dokonce i didgeridoo.<br><br>Kdyz jsme se vratili domu, osmahli jsme druhe bramboraky a pak uz sli spat, akorat jenom s jednou matraci, protoze Svenja tu mela kamaradku na prespani, tak jsme ji to pujcili. postel bez matrace je tvrda.<br><br><br><br><br><br><br><br>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/10/birmingham-den-druhy/" class="u-url">Birmingham - den druhy</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/10/birmingham-den-druhy/" rel="bookmark"><time class="published dt-published" datetime="2015-10-11T00:38:00+02:00" title="2015-10-11 00:38">2015-10-11 00:38</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>'Spread the love' uz za svetla a i v zaludku - lepsi, nez Rama...<br><br>Maji tu srandovni system otevirani vrchni casti okna na vetracku - na takovych kloubech se cele to okno vykloni ven, ale trci ven vsema castma... nejlepsi popis bude fotka...<br></p>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-gcAQktlV69M/VhmXVbB9AxI/AAAAAAAAJxc/VsuToxaOwNI/s1600/20151009_111216.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="http://1.bp.blogspot.com/-gcAQktlV69M/VhmXVbB9AxI/AAAAAAAAJxc/VsuToxaOwNI/s320/20151009_111216.jpg" width="320"></a></div> Druha jizda na cerno, je to celkem navykovy... obzvlast, kdyz jsou ty jizdenky tak desne drahy. Dojeli jsme do centra a vydali se prozkoumat mistni kanaly. Nemaji tak primove, jako mame v praze, ale jsou zase spis benatskeho typu (https://en.wikipedia.org/wiki/Birmingham_Canal_Navigations)<br>Docela pekne...<br><br>Pak jsme pokracovali do knihovny, ve kterez jsme vysplhali az nahoru do sedmeho patra do tajne zahrady s primovou vyhlidkou na Birmingham a do 9. patra na Shakespeare memorial - nejak tam sbiraji vsechno tykajici se Shakespeara - vsechny preklady, vydani, komentare, vsechno... je toho tam nejak silene moc.<br><br>Po knihovne jsme navstivili pamatnik padlym vojakum z I. a II. WW...<br><br>Cesta kolem Town Hallu v antickem reckem stylu. Divny.<br><br>Pak jsme sli pres nejake namesticko a najednou jsem si vsiml nejaky uplne divne zkriveny zensky, tak jsme zastavili a zjistili, ze je nejaka tuha...<br>Skoro hned jsme objevili jeste dalsi asi tri, nebo ctyri podobne pripady... Nejaky studenti umeni asi, nebo tak neco... proste prisli, par minut zatuhly do divnych poz a pak z niceho nic zase nekam odesli...<br><br>Dalsim bodem nasi vypravy bylo muzeum/galerie... no bylo to celkem na dlouho, ale meli tam celkem dost primovy interaktivni exponaty pro deti a vypadalo to fakt vymakane... Taky tam meli v sekci egypt mumie. jednu lidskou a pak zvireci... Silene srandovni :D (zleva - sokol, kocka, ibis, had)<br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-wD8kzK8AaWw/VhmXVTPwogI/AAAAAAAAJxc/VBY-syGscBs/s1600/20151009_132617.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="http://3.bp.blogspot.com/-wD8kzK8AaWw/VhmXVTPwogI/AAAAAAAAJxc/VBY-syGscBs/s640/20151009_132617.jpg" width="640"></a></div>
+<div class="separator" style="clear: both; text-align: center;"><br></div>Po celkem narocnem muzeu jsme si chteli trochu odpocinout a tak jsme zamirili k vyhlednute kesce ( <a href="http://coord.info/GCWF77">http://coord.info/GCWF77</a> ). Na namesti je takova socha vykuleny zensky, coz je podle kesky slecna, co na koupaku ztratila nejdriv plavky a pak i rtenku, kterou zrovna hleda a nemuze ji najit... No cely pribeh si kdyztak prectete na strance kesky, ale kazdopadne ta socha koukala fakt silene vykulene, tak jsme si rekli, ze budeme trochu prikulovat a povedlo se mimoradne :D (kesku jsme nenasli, asi ne nadarmo ma obtiznost 5)<br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-1OAvpvqKmkc/VhmXVcfYaBI/AAAAAAAAJxc/zrb5diHiBQ4/s1600/20151009_135809.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="360" src="http://2.bp.blogspot.com/-1OAvpvqKmkc/VhmXVcfYaBI/AAAAAAAAJxc/zrb5diHiBQ4/s640/20151009_135809.jpg" width="640"></a></div> Pak jsme si dali nejlevnejsi obed, co jsme nasli, nejakou takovou bagetu - nic moc, ale jinak bylo vsechno moc drahy.<br><br>Po obede jsme zacli hledat dalsi kesku ( <a href="http://coord.info/GC259N2">http://coord.info/GC259N2</a> ). Slo o to seradit fotky jak jdou za sebou, kdyz se jde po jedne ulici. Bylo to docela zabavny a prohlidli jsme si to tam tak docela detailne. Dosli jsme az na konec, ale jednu fotku jsme prehlidli, takze jsme se vraceli, coz nas zavedlo k pekne budove soudu... zkusili jsme se tam jit kouknout a museli jsme projit ramama a nechat tam fotak, ale vevnitr to bylo fakt moc hezky. Po chvilce prohlizeni a nakukovani pres sklo do soudnich sini jsme vyzvedli fotak a sli donajit tu kesku, coz se nam i povedlo :) jupii.<br><br>Pak uz jsme celkem unaveni zamirili na posledni cast naseho vyletu - zeleninovy trh u Bullringu, coz je takova velka nakupni zona v centru... Cestou jsme se jeste stavili v kostele st. Martin, kde meli primove vitraze (podle Klubicka vitriny), vtipny sovy (viz fotky nekdy pozdejc v albu) a bezdomovce, kterej chtel prispet na cestu autobusem kamsi... jeden by cekal, ze se somrovaci strategie budou po svete aspon trochu lisit... asi ne no...<br><br>Trh - dost silny zazitek... nejdriv zelenino-ovocna cast. Bylo uz odpoledne asi pul hodiny pred zavirackou, takze se to snazili doprodat a snizovali ceny... vsechno se meri na misky... prodavaci na lidi uplne rvou, at si to koupej u nich, je to docela srandovni :D. Koupili jsme jeden bowl bananu za 50p (dva pekne trsy) a dva bowly cuket asi za 1.45, ale uz nevim... kazdopadne je to asitak o 1.5 bowlu cuket vic, nez by normalni rodina snedla za tyden :D no, podlehli jsme kouzlu slevy a revu prodavace...<br>Po zelenine jsme prosli zastresenou casti trznice - vypadalo to tady uplne stejne, jako v polsku na trzich, jenom vsude vlali anglicke vlajecky...<br>A pak to hlavni - maso a ryby... Sileny smrad... sileny smrad... sileny smrad...<br>A misteriozni kousky morskych plodu a i suchozemskych plodu...<br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-4B_S1qxeNlo/VhmXVdH_WhI/AAAAAAAAJxc/PXOMHZbm8Hk/s1600/20151009_164024.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="http://2.bp.blogspot.com/-4B_S1qxeNlo/VhmXVdH_WhI/AAAAAAAAJxc/PXOMHZbm8Hk/s320/20151009_164024.jpg" width="320"></a></div> Po tomto velmi silnem zazitku jsme prosli chinatownem (proste jenom vic cinskych napisu, nic zajimaveho) a pri cekani na bus domu se jeste zabehli kouknout na vlakove nadrazi. Ma peknou budovu se zajimavou strechou, ale i vevnitr to vypada dost krute. Vedle stoji neco, co vypada, jako tovarna, ale je to kino Odeon.<br><br>Kdyz jsme prijeli domu, povecereli jsme testovinovy salat od Idy (mnam!), ktere zbyly asi tri misy, protoze ho nesla na nejake setkani kohosi, kam mel kazdy prinest jidlo pro 4 lidi... no takze vsem zbylo jidlo cca pro 3 lidi... kdo by to byl rekl... ty vado...<br><br>Po veceri jsme sli jeste za sera zkusit najit kesku hned tady blizko u rezervoiru, na kterem bylo strasne moc racku... Kesku jsme nenasli a to jsme se brodili koprivama fakt dost dlouho.<br><br>Sobotu napisu zas nekdy jindy, tak zatim prikladam odkaz na album <a href="https://goo.gl/photos/QAfRvTLPtZGxApdM6">https://goo.gl/photos/QAfRvTLPtZGxApdM6</a><br>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015/10/birmingham-den-prvni/" class="u-url">Birmingham - den prvni</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/2015/10/birmingham-den-prvni/" rel="bookmark"><time class="published dt-published" datetime="2015-10-10T23:48:00+02:00" title="2015-10-10 23:48">2015-10-10 23:48</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Aneb jak jsem se vykvajzl na praci a skolu a jel za Klubickem do Birminghamu.<br><br>Psat blog je tak otravny :D uz ted.<br><br>Ve stredu 7.10. jsem si vecer zabalil sve jedine povolene zavazadlo - skolni batoh. Ukol znel jasne - privezt pohorky, tricko, krizek, kousek pocitace, co si zapomnela na stole (:D), druhy mobil na anglickou simku a leginy. Do batohu se to kupodivu veslo a zbylo i trochu mista na notebook, ponozky a pyzamo.<br><br>Na letisti jsem si vymenil 11 liber, vsechno probehlo v pohode a po celkem dost dlouhem cekani jsem se konecne dostal do busu, ktery nas odvezl k letadlu. A320, malo mista, ale aspon u okenka. Let byl super (muj prvni), akorat byly mraky... Ale svitici mesta skrz ne obcas krasne problikavala. Stihl jsem si pak tak akorat precist palubni divnocasopis plnej reklam a uz hlasili, ze napravo je v dalce videt Amsterdam a ze zahajime sestup do Londyna. A venku uz nebyly mraky a byl krasny vyhled na pobrezi, svitici lode a tak. Anglie je fakt hrozne blizko pres vodu... No pak uz prisel akorat sestup a pristani a vystup.<br><br>Shaneni kytky... se nepovedlo. Meli jenom v Marks&amp;Spencer a nejlevnejsi byla asi za 15 liber... :( vsude vukol akorat travniky, takze se ani nic zcorit nedalo...<br><br>Prvni setkani s mistni obchodovou uchylnosti - 2 za 1 libru, 3 za 6 liber, atd... proste snad kazda vec tu ma hodne viditelnou mnozstevni slevu... proste proc si koupit 1 flasku piti za 1.99, kdyz si muzes koupit 2 za 3 libry? Je to tu vsude a je to hrozny, cloveku se fakt hrozne chce koupit si toho vic, aby to mel vyhodnejsi... jsou to hadi a dost to funguje. Mami, nejezdi sem.<br><br>Prijezd autobusu... nastal... vsechno v pohode, ridic sympatak... vsechny busy se tady sklanej... proste prijede na zastavku a levy predni roh se o 20 cm snizi, aby se lip nastupovalo a pred vyjetim se zase cely bus zvedne. Uprostred cesty 5 minut pauza, ridic s kumpanama z busu jdou kourit. Nesmi se tu kourit na zastavkach, ale meli tam specialni kurackou budku :D<br><br>Prijezd do Birminghamu, privitani se s Klubickem a rychla chuze na posledni bus. Je dvoupatrovej :D Prvni pokus s jizdou na cerno, respektive jizdou na den starou skupinovou jizdenku. Proste se tu nastupuje prednima dverma a ukaze se ridicovi jizdenka... jenomze to co je na ni vytisnuty nema sanci nikdo precist ze vzdalenosti vetsi, nez 20cm. A kdyz se jeste prstem zakreje to datum trochu... no proste jsme cesi, no... tady by to asi nikoho ani nenapadlo udelat. My jsme takhle ususnili uz asi 9 liber a za usetreny peniz podporili mistni zemedelce a hlavne nakrmili sve zaludky.<br><br></p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-9_giSyudw-U/VhmW1b0sMeI/AAAAAAAAJxU/NTSU7ZVm3tU/s1600/20151009_011718.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://4.bp.blogspot.com/-9_giSyudw-U/VhmW1b0sMeI/AAAAAAAAJxU/NTSU7ZVm3tU/s320/20151009_011718.jpg" width="240"></a></div>
+<br><br><br>Vsechny domky v ulici jsou stejne, male z cervenych cihel. Jedem kolem mistniho shopu ASDA - dokonaly jmeno... Prichod domu. Vtipny zamykani, par super vyrobku (margarin 'Spread the love', non-bio persil, ...). Jdeme spat.<br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-idIeQLxHmtY/VhmW1YeWl3I/AAAAAAAAJxU/du7wXXJnYFc/s1600/20151009_103242.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="300" src="http://2.bp.blogspot.com/-idIeQLxHmtY/VhmW1YeWl3I/AAAAAAAAJxU/du7wXXJnYFc/s400/20151009_103242.jpg" width="400"></a></div>
+<br>
+</div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="index-3.html" rel="prev">Newer posts</a>
+            </li>
+            <li class="next">
+                <a href="index-1.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:jonas.serych@gmail.com">serycjon</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

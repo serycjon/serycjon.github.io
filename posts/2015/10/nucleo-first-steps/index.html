@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nucleo first steps | serycjon's blog</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="https://serycjon.github.io/posts/2015/10/nucleo-first-steps/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="serycjon">
+<link rel="prev" href="../osciloskop/" title="Osciloskop!!!" type="text/html">
+<link rel="next" href="../../11/nucleo-pokus-druhy/" title="nucleo, pokus druhy" type="text/html">
+<meta property="og:site_name" content="serycjon's blog">
+<meta property="og:title" content="Nucleo first steps">
+<meta property="og:url" content="https://serycjon.github.io/posts/2015/10/nucleo-first-steps/">
+<meta property="og:description" content="prvni krucky s STM32F303 Nucleo...1) pripojil jsem kit k pocitaci a ejhle - hned se zjevil jako usb-storage.primountoval jsem a byl tam akorat soubor mbed.htm, ktery me odkazal na mbedi web, kde jsem ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-10-30T12:05:00+01:00">
+<meta property="article:tag" content="ose">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://serycjon.github.io/">
+
+                <span id="blog-title">serycjon's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Nucleo first steps</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    serycjon
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2015-10-30T12:05:00+01:00" itemprop="datePublished" title="2015-10-30 12:05">2015-10-30 12:05</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>prvni krucky s STM32F303 Nucleo...<br><br>1) pripojil jsem kit k pocitaci a ejhle - hned se zjevil jako usb-storage.<br>primountoval jsem a byl tam akorat soubor mbed.htm, ktery me odkazal na mbedi web, kde jsem se zaregistroval. Dokonce mi to rovnou nastavilo spravne device...<br><br>pak jsem zkusil rozbehat prvni priklad - blikani onboard ledkou... nejdriv neslo sbuildovat, kvuli chybejicimu device.h, nebo tak neco, ale po updatovani mbed knihovny uz to slo v pohode. Sbuildovalo, dalo mi to ke stazeni binarku. Soupl jsem to na Nucleo a ejhle - blika :)<br>pro zkousku jsem zmenil frekvenci blikani a prebuildil a funguje.<br><br>2) webove rozhrani je sice hezke, ale hrozne tezkopadne... jdu koumat, jak to rozchodit lokalne<br><br>budu postupovat podle http://regalis.com.pl/en/arm-cortex-stm32-gnulinux/ <br><br>crosscompiler<br>$ sudo apt-get install gcc-arm-none-eabi<br>debugger<br>$ sudo apt-get install gdb-arm-none-eabi<br>instalace se nepodarila, kvuli bugu v balicku - konflikt v manualovych strankach...<br>nasel jsem workaround:<br></p>
+<div id="yui_3_10_3_1_1445974154679_252">$ sudo apt-get -o Dpkg::Options:<wbr></wbr>:="--force-<wbr></wbr>overwrite" install gdb-arm-<wbr></wbr>none-eabi</div>
+<div id="yui_3_10_3_1_1445974154679_252">pak uz se to podarilo, snad jsem nic moc nepokonil...<br><br>stahl jsem si STM32cubeF3 <br>http://www.st.com/web/en/catalog/tools/PF260613#<br><br>zacetl se do navodu a prozatim to po par hodinach vzdal...</div>
+<div id="yui_3_10_3_1_1445974154679_252"></div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../../../categories/ose/" rel="tag">ose</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../osciloskop/" rel="prev" title="Osciloskop!!!">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../../11/nucleo-pokus-druhy/" rel="next" title="nucleo, pokus druhy">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:jonas.serych@gmail.com">serycjon</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

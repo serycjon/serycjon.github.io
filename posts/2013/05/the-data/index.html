@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The data | serycjon's blog</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="https://serycjon.github.io/posts/2013/05/the-data/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="serycjon">
+<link rel="prev" href="../../04/first-steps/" title="First steps" type="text/html">
+<link rel="next" href="../marker-icons/" title="Marker icons" type="text/html">
+<meta property="og:site_name" content="serycjon's blog">
+<meta property="og:title" content="The data">
+<meta property="og:url" content="https://serycjon.github.io/posts/2013/05/the-data/">
+<meta property="og:description" content="Hi there :)Last time I wrote mainly about the recycle bins database. Unfortunatelly Prazske Sluzby a.s. refused to give me access to it :(My next step was to try and obtain the data from their interac">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2013-05-05T17:29:00+02:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://serycjon.github.io/">
+
+                <span id="blog-title">serycjon's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">The data</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    serycjon
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2013-05-05T17:29:00+02:00" itemprop="datePublished" title="2013-05-05 17:29">2013-05-05 17:29</time></a></p>
+            
+        <p class="sourceline"><a href="index.src.html" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>Hi there :)<br>Last time I wrote mainly about the recycle bins database. Unfortunatelly Prazske Sluzby a.s. refused to give me access to it :(<br>My next step was to try and obtain the data from their interactive <a href="http://odpad.prazske-sluzby.cdsw.cz/imapa.aspx">online map</a>, but I was not succesfull as their system is quite leak-proof. The map is sent in form of png images, so you can't get bins coordinates. When you click on the map, there is a request sent to their server. If you clicked on recycle bin, you get response with more information about it... I see no easy way to get in... :( Searching by address is not any more helpfull neither.<br><br>For now, I continue developing my app with random data, but I will probably have to copy them manually :-/<br><br>That's for the sad news. And now for the good ones. I managed to make filter dialog allowing user to choose types of waste (paper, glass, plastic and Tetra Pak's) to be shown. It isn't perfect from the graphical point of view, but one of the key features is finally working :)<br><br>Next working feature is limiting of camera view. Markers are shown only if zoom is greater than 13 and if user zooms out too much or if he pan Prague out of the view he is smoothly returned back and informed by "<a href="http://developer.android.com/guide/topics/ui/notifiers/toasts.html">Toast</a>"<br><br>What is my plan for next few hours?<br><br></p>
+<ol>
+<li>
+<strike>create set of up to four-colored map markers indicating types of recycle bins on the place</strike> DONE</li>
+<li>
+<strike>show them properly</strike>  -  DONE</li>
+<li>
+<strike>choose apropriate location provider when trying to locate the user</strike> - DONE</li>
+<li>
+<strike>inform user that the app is looking up his location when he clicks on GPS menu item in action bar</strike> - DONE</li>
+<li>
+<strike>mark found location with some icon</strike> - DONE</li>
+<li>zoom the view so that few nearest search result are visible</li>
+<li>allow address searching</li>
+<li>
+<strike>repair action bar icons visibility (they are too dark, nearly invisible (using official google holo dark icons... what could be the problem?))</strike> DONE</li>
+<li>Find icons with higher resolution</li>
+<li>
+<strike>make filter dialog look prettier (guidelines?)</strike> DONE</li>
+<li>get the data somewhere!</li>
+</ol>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-VUPgMx5_8e8/UYaHPEcMayI/AAAAAAAAD1Q/s_eRY01caxg/s1600/recycleMap_v2.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="320" src="http://4.bp.blogspot.com/-VUPgMx5_8e8/UYaHPEcMayI/AAAAAAAAD1Q/s_eRY01caxg/s320/recycleMap_v2.png" width="200"></a><a href="http://3.bp.blogspot.com/-J3iqQw3yRjg/UYaHMHgxCkI/AAAAAAAAD1I/4EBBNCLwpKI/s1600/recycleMap_v2_filter_dialog.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://3.bp.blogspot.com/-J3iqQw3yRjg/UYaHMHgxCkI/AAAAAAAAD1I/4EBBNCLwpKI/s320/recycleMap_v2_filter_dialog.png" width="200"></a><a href="http://2.bp.blogspot.com/-Tdwi93PvE84/UYaHQ4QREGI/AAAAAAAAD1Y/dTZOekS8si8/s1600/recycleMap_v2_filter_results.png" imageanchor="1" style="clear: right; display: inline !important; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"><img border="0" height="320" src="http://2.bp.blogspot.com/-Tdwi93PvE84/UYaHQ4QREGI/AAAAAAAAD1Y/dTZOekS8si8/s320/recycleMap_v2_filter_results.png" width="200"></a>
+</div>
+<br><br>
+</div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../../04/first-steps/" rel="prev" title="First steps">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../marker-icons/" rel="next" title="Marker icons">Next post</a>
+            </li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:jonas.serych@gmail.com">serycjon</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
