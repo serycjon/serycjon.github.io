@@ -7,51 +7,79 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://serycjon.github.io/</loc>
-  <lastmod>2017-06-29T10:46:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/2013/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/2015/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/2016/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/2017/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/archive.html</loc>
-  <lastmod>2017-06-29T10:35:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/blog/</loc>
+  <lastmod>2017-06-29T15:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/blog/index-1.html</loc>
+  <lastmod>2017-06-29T15:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/blog/index-2.html</loc>
+  <lastmod>2017-06-29T15:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/blog/index-3.html</loc>
+  <lastmod>2017-06-29T15:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/blog/index-4.html</loc>
+  <lastmod>2017-06-29T15:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/blog/index-5.html</loc>
+  <lastmod>2017-06-29T15:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/categories/</loc>
-  <lastmod>2017-06-29T10:35:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/categories/craft/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/categories/emacs/</loc>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/categories/ose/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/categories/tme/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/categories/z-cest/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/galleries/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/index-1.html</loc>
@@ -71,222 +99,262 @@
  </url>
  <url>
   <loc>https://serycjon.github.io/index-5.html</loc>
-  <lastmod>2017-06-29T10:35:00Z</lastmod>
+  <lastmod>2017-06-29T12:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/listings/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/listings/__pycache__/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/listings/hello.py.html</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/main/</loc>
+  <lastmod>2017-06-29T15:18:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/pages/</loc>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/pages/index-1.html</loc>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/pages/index-2.html</loc>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/pages/index-3.html</loc>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/pages/index-4.html</loc>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/pages/index-5.html</loc>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/pages/main/</loc>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/03/thinking-about-application/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/04/first-steps/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/05/acquiring-data/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/05/almost-finished/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/05/android-sqlite-database-import/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/05/final-touches/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/05/launcher-icon-completed/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/05/location-hell/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/05/marker-icons/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2013/05/the-data/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/10/birmingham-3/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/10/birmingham-den-ctvrty/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/10/birmingham-den-druhy/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/10/birmingham-den-paty/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/10/birmingham-den-prvni/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/10/birmingham-den-sesty/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/10/moje-vesela-prihoda-z-tramvaje/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/10/nucleo-first-steps/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/10/osciloskop/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/11/nastroj-slouzici-k-nabirani-potravy-z/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/11/nucleo-lokalne/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/11/nucleo-pokus-druhy/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/11/vydlabnout-se-na-vsechno/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2015/12/konec-kolrosing-kava/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/01/jako-ty-topoly/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/01/zabijacka/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/02/belgie-aneb-cesta-tam-snad-casem-i-zase/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/02/ctvrtek/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/02/cvww-16-den-druhy/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/02/cvww-16-den-prvni/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/02/cvww-16-den-treti/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/02/leuven-dil-druhy/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/02/vymysleni-nadpisu-je-cim-dal-otravnejsi/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/03/long-time-no-see/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/03/tyden-skoro-4/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/04/brusel-tak/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/04/uk-vylet-dil-druhy-londyn-edinburgh/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/04/uk-vylet-dil-prvni-cesta-birmingham/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/05/a-co-bylo-dal/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/05/uk-vylet-dil-treti-glasgow/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/06/bruggy-blechy-bemde/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/06/irsko-7-115/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/06/navsteva/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/07/lzice-pro-britt/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/07/navsteva-druha-brusel-bruggy-oostende/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/07/stavka-cr-zase-stavka/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/08/antwerpy/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/08/le-zicka/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/08/liege-maastricht/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2016/08/netherlands-smitec/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://serycjon.github.io/posts/2017/05/kockodan/</loc>
-  <lastmod>2017-06-29T10:32:00Z</lastmod>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/posts/blogging-with-nikola/</loc>
+  <lastmod>2017-06-29T15:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://serycjon.github.io/posts/nikola/</loc>
+  <lastmod>2017-06-29T12:30:00Z</lastmod>
  </url>
 </urlset>

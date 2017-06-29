@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>serycjon's blog (Posts about emacs)</title><link>https://serycjon.github.io/</link><description></description><atom:link rel="self" href="https://serycjon.github.io/categories/emacs.xml" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:jonas.serych@gmail.com"&gt;serycjon&lt;/a&gt; </copyright><lastBuildDate>Thu, 29 Jun 2017 15:25:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Blogging with Nikola</title><link>https://serycjon.github.io/posts/blogging-with-nikola/</link><dc:creator>serycjon</dc:creator><description>&lt;p&gt;
+I have been using &lt;a href="http://blogger.com"&gt;blogger.com&lt;/a&gt; for posting photos and stories about
+my travels. Recently I have done some experiments with Jekyll
+(&lt;a href="http://jekyllrb.com"&gt;jekyllrb.com&lt;/a&gt;) - a ruby based static site generator. Althought it is
+possible to get it working with org-mode, it didn't feel like I will
+stuck to it.
+&lt;/p&gt;
+
+&lt;p&gt;
+A few days ago, &lt;a href="http://cestlaz.github.io/posts/using-emacs-35-blogging/"&gt;this&lt;/a&gt; post about blogging with Emacs org-mode and
+&lt;a href="https://getnikola.com/"&gt;Nikola&lt;/a&gt; was published and I decided I will give it a try.
+&lt;/p&gt;
+
+&lt;p&gt;
+Nikola is a static site generator written in python with many neat
+features, here is how I've got it running.
+&lt;/p&gt;
+
+&lt;div id="outline-container-sec-1" class="outline-2"&gt;
+&lt;h2 id="sec-1"&gt;Basic Nikola installation&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;&lt;div id="outline-container-sec-1-1" class="outline-3"&gt;
+&lt;h3 id="sec-1-1"&gt;virtualenv&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+I have never used python virtual environments and installed all the
+packages globally, but since I use python 2.7 and Nikola wants
+python 3, I gave it a try.
+&lt;/p&gt;
+
+&lt;p&gt;
+Install virtualenv and virtualenvwrapper
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt install virtualenv virtualenvwrapper
+$ mkdir ~/.virtualenvs
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;
+Set some variables and source the virtualenvwrapper - add this
+to .zshrc (or .bashrc).
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;WORKON_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PROJECT_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/dev
+&lt;span class="nb"&gt;source&lt;/span&gt; /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+Don't forget to restart the shell or source the .zshrc afterwards.
+&lt;/p&gt;
+
+&lt;p&gt;
+Now you are ready to create the virtual environment for your blog:
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkvirtualenv --python&lt;span class="o"&gt;=&lt;/span&gt;/usr/bin/python3 blog
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+After this, it is possible to get inside this environment with
+&lt;code&gt;workon blog&lt;/code&gt; and get out of it with &lt;code&gt;deactivate&lt;/code&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-1-2" class="outline-3"&gt;
+&lt;h3 id="sec-1-2"&gt;First steps with Nikola&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;p&gt;
+Getting started with Nikola is just extremely simple. First install
+it (and the optional extras) with
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ workon blog
+$ pip install &lt;span class="s2"&gt;"Nikola[extras]"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;
+With the engine installed, use the following command to create a
+directory with a new site (containing some demo content), build the
+blog and start a server (running on localhost:8000).
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nikola init --demo blog_dir
+$ nikola build
+$ nikola serve -b
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;
+The build and serve can be automated by &lt;code&gt;nikola auto&lt;/code&gt;, which starts
+a server but also looks for any changes and rebuild the site if necessary.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-2" class="outline-2"&gt;
+&lt;h2 id="sec-2"&gt;Getting Emacs involved&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;/div&gt;&lt;div id="outline-container-sec-2-1" class="outline-3"&gt;
+&lt;h3 id="sec-2-1"&gt;Orgmode plugin&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-2-1"&gt;
+&lt;p&gt;
+At this point, you can easily start to publish your awesome content
+by calling
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nikola new_post
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+which will create a new reStructuredText file in the &lt;code&gt;posts/&lt;/code&gt;
+directory. Yet another markdown? Fortunately, there is a more
+comfortable way - nikola orgmode &lt;a href="https://plugins.getnikola.com/v7/orgmode/"&gt;plugin&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+Install it with
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nikola plugin -i orgmode
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+You will then have to add some simple stuff to the site &lt;code&gt;conf.py&lt;/code&gt; file, as
+described during the installation (and on the plugin web page).
+&lt;/p&gt;
+
+&lt;p&gt;
+From now on, you can call
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nikola new_post posts/filename.org
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+to create a new blog post with pre-generated nikola metadata.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-2-2" class="outline-3"&gt;
+&lt;h3 id="sec-2-2"&gt;YASnippet post template&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-2-2"&gt;
+&lt;p&gt;
+Org-mode with it's tables, babel and other awesome stuff already
+works at this point, but I didn't really like to call the
+&lt;code&gt;new_post&lt;/code&gt; command, so I have taken the content it generates and
+put it into a YASnippet template.
+&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# key: post
+# name: post
+# --
+#+BEGIN_COMMENT
+.. title: ${1:post title}
+.. slug: ${1:$(replace-regexp-in-string
+		 "[^0-9a-z-]" ""
+	   (replace-regexp-in-string
+	     " " "-"
+	     (downcase yas-text)))}
+.. date: `(insert (format-time-string "%Y-%m-%d %H:%M:%S %Z%z"))`
+.. tags:
+.. category:
+.. link:
+.. description:
+.. type: text
+#+END_COMMENT
+
+$0
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;
+This way, I can just create new &lt;code&gt;posts/filename.org&lt;/code&gt;, write &lt;code&gt;post&lt;/code&gt;,
+press &lt;code&gt;&amp;lt;TAB&amp;gt;&lt;/code&gt; to expand the snippet and I am good to go. The
+template even parses the post title and automatically creates
+a pretty url.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-3" class="outline-2"&gt;
+&lt;h2 id="sec-3"&gt;Other stuff&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+&lt;/div&gt;&lt;div id="outline-container-sec-3-1" class="outline-3"&gt;
+&lt;h3 id="sec-3-1"&gt;Blogger.com import&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-3-1"&gt;
+&lt;p&gt;
+You can export your whole site from blogger.com in Settings &amp;gt; Other
+&amp;gt; Import &amp;amp; back up, which creates a single xml file with all your
+posts. These can then be easily imported using &lt;code&gt;import_blogger&lt;/code&gt;
+plugin.
+&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nikola plugin -i import_blogger
+&lt;span class="c1"&gt;# This didn't work, because of a missing dependency, so repeat after:&lt;/span&gt;
+$ pip install feedparser
+
+&lt;span class="c1"&gt;# do this outside the site directory and copy the posts afterwards&lt;/span&gt;
+$ nikola import_blogger the_blogger_export.xml
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-3-2" class="outline-3"&gt;
+&lt;h3 id="sec-3-2"&gt;Github pages deploy&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-3-2"&gt;
+&lt;p&gt;
+Making your site public using Github pages is extremely simple,
+just follow the steps in the Nikola handbook:
+&lt;a href="https://getnikola.com/handbook.html#deploying-to-github"&gt;https://getnikola.com/handbook.html#deploying-to-github&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description><category>emacs</category><guid>https://serycjon.github.io/posts/blogging-with-nikola/</guid><pubDate>Thu, 29 Jun 2017 13:13:43 GMT</pubDate></item></channel></rss>

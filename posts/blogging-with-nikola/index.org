@@ -1,0 +1,151 @@
+#+BEGIN_COMMENT
+.. title: Blogging with Nikola
+.. slug: blogging-with-nikola
+.. date: 2017-06-29 15:13:43 CEST+0200
+.. tags: emacs
+.. category:
+.. link:
+.. description:
+.. type: text
+#+END_COMMENT
+
+I have been using [[http://blogger.com][blogger.com]] for posting photos and stories about
+my travels. Recently I have done some experiments with Jekyll
+([[http://jekyllrb.com][jekyllrb.com]]) - a ruby based static site generator. Althought it is
+possible to get it working with org-mode, it didn't feel like I will
+stuck to it.
+
+A few days ago, [[http://cestlaz.github.io/posts/using-emacs-35-blogging/][this]] post about blogging with Emacs org-mode and
+[[https://getnikola.com/][Nikola]] was published and I decided I will give it a try.
+
+Nikola is a static site generator written in python with many neat
+features, here is how I've got it running.
+
+* Basic Nikola installation
+
+** virtualenv
+   I have never used python virtual environments and installed all the
+   packages globally, but since I use python 2.7 and Nikola wants
+   python 3, I gave it a try.
+
+   Install virtualenv and virtualenvwrapper
+   #+BEGIN_SRC sh
+      $ sudo apt install virtualenv virtualenvwrapper
+      $ mkdir ~/.virtualenvs
+   #+END_SRC
+
+   Set some variables and source the virtualenvwrapper - add this
+   to .zshrc (or .bashrc).
+   #+BEGIN_SRC sh
+      export WORKON_HOME=$HOME/.virtualenvs
+      export PROJECT_HOME=$HOME/dev
+      source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+   #+END_SRC
+   Don't forget to restart the shell or source the .zshrc afterwards.
+
+   Now you are ready to create the virtual environment for your blog:
+   #+BEGIN_SRC sh
+   $ mkvirtualenv --python=/usr/bin/python3 blog
+   #+END_SRC
+   After this, it is possible to get inside this environment with
+   =workon blog= and get out of it with =deactivate=.
+
+** First steps with Nikola
+   Getting started with Nikola is just extremely simple. First install
+   it (and the optional extras) with
+   #+BEGIN_SRC sh
+   $ workon blog
+   $ pip install "Nikola[extras]"
+   #+END_SRC
+
+   With the engine installed, use the following command to create a
+   directory with a new site (containing some demo content), build the
+   blog and start a server (running on localhost:8000).
+   #+BEGIN_SRC sh
+   $ nikola init --demo blog_dir
+   $ nikola build
+   $ nikola serve -b
+   #+END_SRC
+
+   The build and serve can be automated by =nikola auto=, which starts
+   a server but also looks for any changes and rebuild the site if necessary.
+
+* Getting Emacs involved
+
+** Orgmode plugin
+   At this point, you can easily start to publish your awesome content
+   by calling
+   #+BEGIN_SRC sh
+   $ nikola new_post
+   #+END_SRC
+   which will create a new reStructuredText file in the =posts/=
+   directory. Yet another markdown? Fortunately, there is a more
+   comfortable way - nikola orgmode [[https://plugins.getnikola.com/v7/orgmode/][plugin]].
+
+   Install it with
+   #+BEGIN_SRC sh
+   $ nikola plugin -i orgmode
+   #+END_SRC
+   You will then have to add some simple stuff to the site =conf.py= file, as
+   described during the installation (and on the plugin web page).
+
+   From now on, you can call
+   #+BEGIN_SRC sh
+   $ nikola new_post posts/filename.org
+   #+END_SRC
+   to create a new blog post with pre-generated nikola metadata.
+
+** YASnippet post template
+   Org-mode with it's tables, babel and other awesome stuff already
+   works at this point, but I didn't really like to call the
+   =new_post= command, so I have taken the content it generates and
+   put it into a YASnippet template.
+
+   #+BEGIN_SRC elisp
+     # key: post
+     # name: post
+     # --
+     ,#+BEGIN_COMMENT
+     .. title: ${1:post title}
+     .. slug: ${1:$(replace-regexp-in-string
+		      "[^0-9a-z-]" ""
+		(replace-regexp-in-string
+		  " " "-"
+		  (downcase yas-text)))}
+     .. date: `(insert (format-time-string "%Y-%m-%d %H:%M:%S %Z%z"))`
+     .. tags:
+     .. category:
+     .. link:
+     .. description:
+     .. type: text
+     ,#+END_COMMENT
+
+     $0
+   #+END_SRC
+
+   This way, I can just create new =posts/filename.org=, write =post=,
+   press =<TAB>= to expand the snippet and I am good to go. The
+   template even parses the post title and automatically creates
+   a pretty url.
+
+* Other stuff
+
+** Blogger.com import
+   You can export your whole site from blogger.com in Settings > Other
+   > Import & back up, which creates a single xml file with all your
+   posts. These can then be easily imported using =import_blogger=
+   plugin.
+
+   #+BEGIN_SRC sh
+   $ nikola plugin -i import_blogger
+   # This didn't work, because of a missing dependency, so repeat after:
+   $ pip install feedparser
+
+   # do this outside the site directory and copy the posts afterwards
+   $ nikola import_blogger the_blogger_export.xml
+   #+END_SRC
+
+** Github pages deploy
+   Making your site public using Github pages is extremely simple,
+   just follow the steps in the Nikola handbook:
+   [[https://getnikola.com/handbook.html#deploying-to-github]]
