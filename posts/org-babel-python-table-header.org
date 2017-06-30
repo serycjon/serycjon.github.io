@@ -1,0 +1,76 @@
+# -*- org-confirm-babel-evaluate: nil -*-
+#+BEGIN_COMMENT
+.. title: Org-babel python table header
+.. slug: org-babel-python-table-header
+.. date: 2017-06-30 11:18:57 CEST+0200
+.. tags: emacs
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+Recently, I finally found a good use-case for python code block in an
+org-mode file. My goal was to generate a table, which wasn't hard at all:
+#+BEGIN_EXAMPLE
+#+BEGIN_SRC python :results table :exports results
+  table = []
+  for i in range(4):
+      table.append([i, 2**i])
+  return table
+#+END_SRC
+#+END_EXAMPLE
+
+#+BEGIN_SRC python :results table :exports results
+  table = []
+  for i in range(4):
+      table.append([i, 2**i])
+  return table
+#+END_SRC
+
+#+RESULTS:
+| 0 | 1 |
+| 1 | 2 |
+| 2 | 4 |
+| 3 | 8 |
+
+Nice, but how to add a header (give each column a name)?  It is quite
+surprising, how hard it is to find any relevant info about that.
+After some elisp research, I have discovered
+=org-babel-python-None-to= variable, which defaults to =hline=.  With
+that set, it is now easy to add header separator by simply inserting
+=None= into the list returned by the python code as in the following example.
+
+#+BEGIN_EXAMPLE
+#+BEGIN_SRC python :results table :exports results
+  table = [['#n', 'n-th power of 2'], None]
+  for i in range(4):
+      table.append([i, 2**i])
+  return table
+#+END_SRC
+#+END_EXAMPLE
+
+#+BEGIN_SRC python :results table :exports results
+  table = [['#n', 'n-th power of 2'], None]
+  for i in range(4):
+      table.append([i, 2**i])
+  return table
+#+END_SRC
+
+#+RESULTS:
+| #n | n-th power of 2 |
+|----+-----------------|
+|  0 |               1 |
+|  1 |               2 |
+|  2 |               4 |
+|  3 |               8 |
+
+BTW I have added the following setting in the Nikola orgmode plugin
+init.el in order to style the tables nicely.
+
+#+BEGIN_EXAMPLE
+(setq org-html-table-default-attributes
+      (quote
+       (:border "2" :cellspacing "0" :cellpadding "6" :rules "groups"
+		:frame "hsides" :class "table-condensed table-bordered")))
+#+END_EXAMPLE
