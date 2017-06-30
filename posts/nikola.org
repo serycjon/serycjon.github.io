@@ -112,7 +112,7 @@ features, here is how I've got it running.
 		(replace-regexp-in-string
 		  " " "-"
 		  (downcase yas-text)))}
-     .. date: `(insert (format-time-string "%Y-%m-%d %H:%M:%S %Z%z"))`
+     .. date: `(format-time-string "%Y-%m-%d %H:%M:%S %Z%z")`
      .. tags:
      .. category:
      .. link:
