@@ -10,9 +10,16 @@
 ;;       (add-to-list 'load-path org-lisp-dir)
 ;;       (require 'org)))
 
+(add-to-list 'load-path "/home/jonas/software/sources/org-mode/lisp/")
+(add-to-list 'load-path "/home/jonas/software/sources/org-mode/contrib/lisp" t)
+(require 'org)
 (require 'ox-html)
 
 ;;; Custom configuration for the export. ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq org-html-table-default-attributes
+      (quote
+       (:border "2" :cellspacing "0" :cellpadding "6" :rules "groups"
+		:frame "hsides" :class "table-condensed table-bordered")))
 
 ;;; Add any custom configuration that you would like to 'conf.el'.
 (setq
