@@ -1,5 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>serycjon's blog (Posts about emacs)</title><link>https://serycjon.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://serycjon.github.io/categories/emacs.xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:jonas.serych@gmail.com"&gt;serycjon&lt;/a&gt; </copyright><lastBuildDate>Thu, 29 Jun 2017 21:24:45 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Blogging with Nikola</title><link>https://serycjon.github.io/posts/blogging-with-nikola/</link><dc:creator>serycjon</dc:creator><description>&lt;p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>serycjon's blog (Posts about emacs)</title><link>https://serycjon.github.io/</link><description></description><atom:link href="https://serycjon.github.io/categories/emacs.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:jonas.serych@gmail.com"&gt;serycjon&lt;/a&gt; </copyright><lastBuildDate>Fri, 30 Jun 2017 10:25:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Org-babel python table header</title><link>https://serycjon.github.io/posts/org-babel-python-table-header/</link><dc:creator>serycjon</dc:creator><description>&lt;p&gt;
+Recently, I finally found a good use-case for python code block in an
+org-mode file. My goal was to generate a table, which wasn't hard at all:
+&lt;/p&gt;
+&lt;pre class="example"&gt;
+#+BEGIN_SRC python :results table :exports results
+  table = []
+  for i in range(4):
+      table.append([i, 2**i])
+  return table
+#+END_SRC
+&lt;/pre&gt;
+
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="table-condensed table-bordered"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col class="org-right"&gt;
+
+&lt;col class="org-right"&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-right"&gt;0&lt;/td&gt;
+&lt;td class="org-right"&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-right"&gt;1&lt;/td&gt;
+&lt;td class="org-right"&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-right"&gt;2&lt;/td&gt;
+&lt;td class="org-right"&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-right"&gt;3&lt;/td&gt;
+&lt;td class="org-right"&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+Nice, but how to add a header (give each column a name)?  It is quite
+surprising, how hard it is to find any relevant info about that.
+After some elisp research, I have discovered
+&lt;code&gt;org-babel-python-None-to&lt;/code&gt; variable, which defaults to &lt;code&gt;hline&lt;/code&gt;.  With
+that set, it is now easy to add header separator by simply inserting
+&lt;code&gt;None&lt;/code&gt; into the list returned by the python code as in the following example.
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+#+BEGIN_SRC python :results table :exports results
+  table = [['#n', 'n-th power of 2'], None]
+  for i in range(4):
+      table.append([i, 2**i])
+  return table
+#+END_SRC
+&lt;/pre&gt;
+
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="table-condensed table-bordered"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col class="org-right"&gt;
+
+&lt;col class="org-right"&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th scope="col" class="org-right"&gt;#n&lt;/th&gt;
+&lt;th scope="col" class="org-right"&gt;n-th power of 2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-right"&gt;0&lt;/td&gt;
+&lt;td class="org-right"&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-right"&gt;1&lt;/td&gt;
+&lt;td class="org-right"&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-right"&gt;2&lt;/td&gt;
+&lt;td class="org-right"&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-right"&gt;3&lt;/td&gt;
+&lt;td class="org-right"&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+BTW I have added the following setting in the Nikola orgmode plugin
+init.el in order to style the tables nicely.
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+(setq org-html-table-default-attributes
+      (quote
+       (:border "2" :cellspacing "0" :cellpadding "6" :rules "groups"
+		:frame "hsides" :class "table-condensed table-bordered")))
+&lt;/pre&gt;</description><category>emacs</category><guid>https://serycjon.github.io/posts/org-babel-python-table-header/</guid><pubDate>Fri, 30 Jun 2017 09:18:57 GMT</pubDate></item><item><title>Blogging with Nikola</title><link>https://serycjon.github.io/posts/blogging-with-nikola/</link><dc:creator>serycjon</dc:creator><description>&lt;p&gt;
 I have been using &lt;a href="http://blogger.com"&gt;blogger.com&lt;/a&gt; for posting photos and stories about
 my travels. Recently I have done some experiments with Jekyll
 (&lt;a href="http://jekyllrb.com"&gt;jekyllrb.com&lt;/a&gt;) - a ruby based static site generator. Althought it is
@@ -17,12 +126,12 @@ Nikola is a static site generator written in python with many neat
 features, here is how I've got it running.
 &lt;/p&gt;
 
-&lt;div id="outline-container-sec-1" class="outline-2"&gt;
-&lt;h2 id="sec-1"&gt;Basic Nikola installation&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-1"&gt;
-&lt;/div&gt;&lt;div id="outline-container-sec-1-1" class="outline-3"&gt;
-&lt;h3 id="sec-1-1"&gt;virtualenv&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;div id="outline-container-org3242198" class="outline-2"&gt;
+&lt;h2 id="org3242198"&gt;Basic Nikola installation&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org3242198"&gt;
+&lt;/div&gt;&lt;div id="outline-container-orgc10b795" class="outline-3"&gt;
+&lt;h3 id="orgc10b795"&gt;virtualenv&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgc10b795"&gt;
 &lt;p&gt;
 I have never used python virtual environments and installed all the
 packages globally, but since I use python 2.7 and Nikola wants
@@ -40,9 +149,9 @@ $ mkdir ~/.virtualenvs
 Set some variables and source the virtualenvwrapper - add this
 to .zshrc (or .bashrc).
 &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;WORKON_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PROJECT_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/dev
-&lt;span class="nb"&gt;source&lt;/span&gt; /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold;"&lt;/span&gt;&amp;gt;export&amp;lt;/span&amp;gt; &amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold; font-style: italic;"&lt;/span&gt;&amp;gt;WORKON_HOME&amp;lt;/span&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;$&amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold; font-style: italic;"&lt;/span&gt;&amp;gt;HOME&amp;lt;/span&amp;gt;/.virtualenvs
+&amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold;"&lt;/span&gt;&amp;gt;export&amp;lt;/span&amp;gt; &amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold; font-style: italic;"&lt;/span&gt;&amp;gt;PROJECT_HOME&amp;lt;/span&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;$&amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold; font-style: italic;"&lt;/span&gt;&amp;gt;HOME&amp;lt;/span&amp;gt;/dev
+&amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold;"&lt;/span&gt;&amp;gt;source&amp;lt;/span&amp;gt; /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;
 Don't forget to restart the shell or source the .zshrc afterwards.
@@ -60,15 +169,15 @@ After this, it is possible to get inside this environment with
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-sec-1-2" class="outline-3"&gt;
-&lt;h3 id="sec-1-2"&gt;First steps with Nikola&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;div id="outline-container-org16c68fe" class="outline-3"&gt;
+&lt;h3 id="org16c68fe"&gt;First steps with Nikola&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org16c68fe"&gt;
 &lt;p&gt;
 Getting started with Nikola is just extremely simple. First install
 it (and the optional extras) with
 &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ workon blog
-$ pip install &lt;span class="s2"&gt;"Nikola[extras]"&lt;/span&gt;
+$ pip install &amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-style: italic;"&lt;/span&gt;&amp;gt;&lt;span class="s2"&gt;"Nikola[extras]"&lt;/span&gt;&amp;lt;/span&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;
@@ -89,12 +198,12 @@ a server but also looks for any changes and rebuild the site if necessary.
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-sec-2" class="outline-2"&gt;
-&lt;h2 id="sec-2"&gt;Getting Emacs involved&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-2"&gt;
-&lt;/div&gt;&lt;div id="outline-container-sec-2-1" class="outline-3"&gt;
-&lt;h3 id="sec-2-1"&gt;Orgmode plugin&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-2-1"&gt;
+&lt;div id="outline-container-orga397ba0" class="outline-2"&gt;
+&lt;h2 id="orga397ba0"&gt;Getting Emacs involved&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orga397ba0"&gt;
+&lt;/div&gt;&lt;div id="outline-container-org8e39988" class="outline-3"&gt;
+&lt;h3 id="org8e39988"&gt;Orgmode plugin&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org8e39988"&gt;
 &lt;p&gt;
 At this point, you can easily start to publish your awesome content
 by calling
@@ -128,9 +237,9 @@ to create a new blog post with pre-generated nikola metadata.
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-sec-2-2" class="outline-3"&gt;
-&lt;h3 id="sec-2-2"&gt;YASnippet post template&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-2-2"&gt;
+&lt;div id="outline-container-orgacacc35" class="outline-3"&gt;
+&lt;h3 id="orgacacc35"&gt;YASnippet post template&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgacacc35"&gt;
 &lt;p&gt;
 Org-mode with it's tables, babel and other awesome stuff already
 works at this point, but I didn't really like to call the
@@ -144,11 +253,11 @@ put it into a YASnippet template.
 #+BEGIN_COMMENT
 .. title: ${1:post title}
 .. slug: ${1:$(replace-regexp-in-string
-		 "[^0-9a-z-]" ""
-	   (replace-regexp-in-string
-	     " " "-"
-	     (downcase yas-text)))}
-.. date: `(insert (format-time-string "%Y-%m-%d %H:%M:%S %Z%z"))`
+                 &amp;lt;span style="font-style: italic;"&amp;gt;"[&amp;lt;/span&amp;gt;&amp;lt;span style="font-style: italic;"&amp;gt;^&amp;lt;/span&amp;gt;&amp;lt;span style="font-style: italic;"&amp;gt;0-9a-z-]"&amp;lt;/span&amp;gt; &amp;lt;span style="font-style: italic;"&amp;gt;""&amp;lt;/span&amp;gt;
+           (replace-regexp-in-string
+             &amp;lt;span style="font-style: italic;"&amp;gt;" "&amp;lt;/span&amp;gt; &amp;lt;span style="font-style: italic;"&amp;gt;"-"&amp;lt;/span&amp;gt;
+             (downcase yas-text)))&amp;lt;span style="font-weight: bold;"&amp;gt;}&amp;lt;/span&amp;gt;
+.. date: `(format-time-string &amp;lt;span style="font-style: italic;"&amp;gt;"%Y-%m-%d %H:%M:%S %Z%z"&amp;lt;/span&amp;gt;)`
 .. tags:
 .. category:
 .. link:
@@ -168,9 +277,9 @@ a pretty url.
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-sec-2-3" class="outline-3"&gt;
-&lt;h3 id="sec-2-3"&gt;Full management from Emacs&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-2-3"&gt;
+&lt;div id="outline-container-org656ad8d" class="outline-3"&gt;
+&lt;h3 id="org656ad8d"&gt;Full management from Emacs&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org656ad8d"&gt;
 &lt;p&gt;
 The last slightly annoying thing is the need of switching the
 python environment and running &lt;code&gt;nikola auto&lt;/code&gt;.  Mike Zamansky has
@@ -186,24 +295,24 @@ simple prodigy-only way.
 &lt;/p&gt;
 
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(prodigy-define-service
-  :name "Nikola"
-  :command "nikola"
-  :args (list "auto")
-  :cwd "/path_to_the/nikola_blog/"
-  :tags '(nikola)
-  :init '(lambda () (pyvenv-workon "blog"))
-  :kill-signal 'sigkill)
+  &amp;lt;span style="font-weight: bold;"&amp;gt;:name&amp;lt;/span&amp;gt; &amp;lt;span style="font-style: italic;"&amp;gt;"Nikola"&amp;lt;/span&amp;gt;
+  &amp;lt;span style="font-weight: bold;"&amp;gt;:command&amp;lt;/span&amp;gt; &amp;lt;span style="font-style: italic;"&amp;gt;"nikola"&amp;lt;/span&amp;gt;
+  &amp;lt;span style="font-weight: bold;"&amp;gt;:args&amp;lt;/span&amp;gt; (list &amp;lt;span style="font-style: italic;"&amp;gt;"auto"&amp;lt;/span&amp;gt;)
+  &amp;lt;span style="font-weight: bold;"&amp;gt;:cwd&amp;lt;/span&amp;gt; &amp;lt;span style="font-style: italic;"&amp;gt;"/path_to_the/nikola_blog/"&amp;lt;/span&amp;gt;
+  &amp;lt;span style="font-weight: bold;"&amp;gt;:tags&amp;lt;/span&amp;gt; '(nikola)
+  &amp;lt;span style="font-weight: bold;"&amp;gt;:init&amp;lt;/span&amp;gt; '(lambda () (pyvenv-workon &amp;lt;span style="font-style: italic;"&amp;gt;"blog"&amp;lt;/span&amp;gt;))
+  &amp;lt;span style="font-weight: bold;"&amp;gt;:kill-signal&amp;lt;/span&amp;gt; 'sigkill)
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-sec-3" class="outline-2"&gt;
-&lt;h2 id="sec-3"&gt;Other stuff&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-3"&gt;
-&lt;/div&gt;&lt;div id="outline-container-sec-3-1" class="outline-3"&gt;
-&lt;h3 id="sec-3-1"&gt;Blogger.com import&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-3-1"&gt;
+&lt;div id="outline-container-org38a411f" class="outline-2"&gt;
+&lt;h2 id="org38a411f"&gt;Other stuff&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org38a411f"&gt;
+&lt;/div&gt;&lt;div id="outline-container-orga0cc864" class="outline-3"&gt;
+&lt;h3 id="orga0cc864"&gt;Blogger.com import&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orga0cc864"&gt;
 &lt;p&gt;
 You can export your whole site from blogger.com in Settings &amp;gt; Other
 &amp;gt; Import &amp;amp; back up, which creates a single xml file with all your
@@ -212,18 +321,18 @@ plugin.
 &lt;/p&gt;
 
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nikola plugin -i import_blogger
-&lt;span class="c1"&gt;# This didn't work, because of a missing dependency, so repeat after:&lt;/span&gt;
+&amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold; font-style: italic;"&lt;/span&gt;&amp;gt;# &amp;lt;/span&amp;gt;&amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold; font-style: italic;"&lt;/span&gt;&amp;gt;This didn&lt;span class="err"&gt;'&lt;/span&gt;t work, because of a missing dependency, so repeat after:&amp;lt;/span&amp;gt;
 $ pip install feedparser
 
-&lt;span class="c1"&gt;# do this outside the site directory and copy the posts afterwards&lt;/span&gt;
+&amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold; font-style: italic;"&lt;/span&gt;&amp;gt;# &amp;lt;/span&amp;gt;&amp;lt;span &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"font-weight: bold; font-style: italic;"&lt;/span&gt;&amp;gt;do this outside the site directory and copy the posts afterwards&amp;lt;/span&amp;gt;
 $ nikola import_blogger the_blogger_export.xml
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-sec-3-2" class="outline-3"&gt;
-&lt;h3 id="sec-3-2"&gt;Github pages deploy&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-3-2"&gt;
+&lt;div id="outline-container-orgb346f96" class="outline-3"&gt;
+&lt;h3 id="orgb346f96"&gt;Github pages deploy&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgb346f96"&gt;
 &lt;p&gt;
 Making your site public using Github pages is extremely simple,
 just follow the steps in the Nikola handbook:

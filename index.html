@@ -11,7 +11,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="https://serycjon.github.io/">
 <link rel="next" href="index-5.html" type="text/html">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/blogging-with-nikola/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/org-babel-python-table-header/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -64,7 +64,110 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/blogging-with-nikola/" class="u-url">Blogging with Nikola</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/org-babel-python-table-header/" class="u-url">Org-babel python table header</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/org-babel-python-table-header/" rel="bookmark"><time class="published dt-published" datetime="2017-06-30T11:18:57+02:00" title="2017-06-30 11:18">2017-06-30 11:18</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>
+Recently, I finally found a good use-case for python code block in an
+org-mode file. My goal was to generate a table, which wasn't hard at all:
+</p>
+<pre class="example">
+#+BEGIN_SRC python :results table :exports results
+  table = []
+  for i in range(4):
+      table.append([i, 2**i])
+  return table
+#+END_SRC
+</pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="table-condensed table-bordered">
+<colgroup>
+<col class="org-right">
+<col class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+</tr>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+</tr>
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">8</td>
+</tr>
+</tbody>
+</table>
+<p>
+Nice, but how to add a header (give each column a name)?  It is quite
+surprising, how hard it is to find any relevant info about that.
+After some elisp research, I have discovered
+<code>org-babel-python-None-to</code> variable, which defaults to <code>hline</code>.  With
+that set, it is now easy to add header separator by simply inserting
+<code>None</code> into the list returned by the python code as in the following example.
+</p>
+
+<pre class="example">
+#+BEGIN_SRC python :results table :exports results
+  table = [['#n', 'n-th power of 2'], None]
+  for i in range(4):
+      table.append([i, 2**i])
+  return table
+#+END_SRC
+</pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="table-condensed table-bordered">
+<colgroup>
+<col class="org-right">
+<col class="org-right">
+</colgroup>
+<thead><tr>
+<th scope="col" class="org-right">#n</th>
+<th scope="col" class="org-right">n-th power of 2</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+</tr>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+</tr>
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">8</td>
+</tr>
+</tbody>
+</table>
+<p>
+BTW I have added the following setting in the Nikola orgmode plugin
+init.el in order to style the tables nicely.
+</p>
+
+<pre class="example">
+(setq org-html-table-default-attributes
+      (quote
+       (:border "2" :cellspacing "0" :cellpadding "6" :rules "groups"
+		:frame "hsides" :class "table-condensed table-bordered")))
+</pre>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/blogging-with-nikola/" class="u-url">Blogging with Nikola</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 serycjon
@@ -90,13 +193,13 @@ Nikola is a static site generator written in python with many neat
 features, here is how I've got it running.
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Basic Nikola installation</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org3242198" class="outline-2">
+<h2 id="org3242198">Basic Nikola installation</h2>
+<div class="outline-text-2" id="text-org3242198">
 </div>
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">virtualenv</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-orgc10b795" class="outline-3">
+<h3 id="orgc10b795">virtualenv</h3>
+<div class="outline-text-3" id="text-orgc10b795">
 <p>
 I have never used python virtual environments and installed all the
 packages globally, but since I use python 2.7 and Nikola wants
@@ -114,9 +217,9 @@ $ mkdir ~/.virtualenvs
 Set some variables and source the virtualenvwrapper - add this
 to .zshrc (or .bashrc).
 </p>
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
-<span class="nb">export</span> <span class="nv">PROJECT_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/dev
-<span class="nb">source</span> /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+<div class="highlight"><pre><span></span>&lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold;"</span>&gt;export&lt;/span&gt; &lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold; font-style: italic;"</span>&gt;WORKON_HOME&lt;/span&gt;<span class="o">=</span>$&lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold; font-style: italic;"</span>&gt;HOME&lt;/span&gt;/.virtualenvs
+&lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold;"</span>&gt;export&lt;/span&gt; &lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold; font-style: italic;"</span>&gt;PROJECT_HOME&lt;/span&gt;<span class="o">=</span>$&lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold; font-style: italic;"</span>&gt;HOME&lt;/span&gt;/dev
+&lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold;"</span>&gt;source&lt;/span&gt; /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
 </pre></div>
 <p>
 Don't forget to restart the shell or source the .zshrc afterwards.
@@ -134,15 +237,15 @@ After this, it is possible to get inside this environment with
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">First steps with Nikola</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org16c68fe" class="outline-3">
+<h3 id="org16c68fe">First steps with Nikola</h3>
+<div class="outline-text-3" id="text-org16c68fe">
 <p>
 Getting started with Nikola is just extremely simple. First install
 it (and the optional extras) with
 </p>
 <div class="highlight"><pre><span></span>$ workon blog
-$ pip install <span class="s2">"Nikola[extras]"</span>
+$ pip install &lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-style: italic;"</span>&gt;<span class="s2">"Nikola[extras]"</span>&lt;/span&gt;
 </pre></div>
 
 <p>
@@ -163,13 +266,13 @@ a server but also looks for any changes and rebuild the site if necessary.
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Getting Emacs involved</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orga397ba0" class="outline-2">
+<h2 id="orga397ba0">Getting Emacs involved</h2>
+<div class="outline-text-2" id="text-orga397ba0">
 </div>
-<div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">Orgmode plugin</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org8e39988" class="outline-3">
+<h3 id="org8e39988">Orgmode plugin</h3>
+<div class="outline-text-3" id="text-org8e39988">
 <p>
 At this point, you can easily start to publish your awesome content
 by calling
@@ -203,9 +306,9 @@ to create a new blog post with pre-generated nikola metadata.
 </div>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">YASnippet post template</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgacacc35" class="outline-3">
+<h3 id="orgacacc35">YASnippet post template</h3>
+<div class="outline-text-3" id="text-orgacacc35">
 <p>
 Org-mode with it's tables, babel and other awesome stuff already
 works at this point, but I didn't really like to call the
@@ -219,11 +322,11 @@ put it into a YASnippet template.
 #+BEGIN_COMMENT
 .. title: ${1:post title}
 .. slug: ${1:$(replace-regexp-in-string
-		 "[^0-9a-z-]" ""
-	   (replace-regexp-in-string
-	     " " "-"
-	     (downcase yas-text)))}
-.. date: `(insert (format-time-string "%Y-%m-%d %H:%M:%S %Z%z"))`
+                 &lt;span style="font-style: italic;"&gt;"[&lt;/span&gt;&lt;span style="font-style: italic;"&gt;^&lt;/span&gt;&lt;span style="font-style: italic;"&gt;0-9a-z-]"&lt;/span&gt; &lt;span style="font-style: italic;"&gt;""&lt;/span&gt;
+           (replace-regexp-in-string
+             &lt;span style="font-style: italic;"&gt;" "&lt;/span&gt; &lt;span style="font-style: italic;"&gt;"-"&lt;/span&gt;
+             (downcase yas-text)))&lt;span style="font-weight: bold;"&gt;}&lt;/span&gt;
+.. date: `(format-time-string &lt;span style="font-style: italic;"&gt;"%Y-%m-%d %H:%M:%S %Z%z"&lt;/span&gt;)`
 .. tags:
 .. category:
 .. link:
@@ -243,9 +346,9 @@ a pretty url.
 </div>
 </div>
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3">Full management from Emacs</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-org656ad8d" class="outline-3">
+<h3 id="org656ad8d">Full management from Emacs</h3>
+<div class="outline-text-3" id="text-org656ad8d">
 <p>
 The last slightly annoying thing is the need of switching the
 python environment and running <code>nikola auto</code>.  Mike Zamansky has
@@ -261,25 +364,25 @@ simple prodigy-only way.
 </p>
 
 <div class="highlight"><pre><span></span>(prodigy-define-service
-  :name "Nikola"
-  :command "nikola"
-  :args (list "auto")
-  :cwd "/path_to_the/nikola_blog/"
-  :tags '(nikola)
-  :init '(lambda () (pyvenv-workon "blog"))
-  :kill-signal 'sigkill)
+  &lt;span style="font-weight: bold;"&gt;:name&lt;/span&gt; &lt;span style="font-style: italic;"&gt;"Nikola"&lt;/span&gt;
+  &lt;span style="font-weight: bold;"&gt;:command&lt;/span&gt; &lt;span style="font-style: italic;"&gt;"nikola"&lt;/span&gt;
+  &lt;span style="font-weight: bold;"&gt;:args&lt;/span&gt; (list &lt;span style="font-style: italic;"&gt;"auto"&lt;/span&gt;)
+  &lt;span style="font-weight: bold;"&gt;:cwd&lt;/span&gt; &lt;span style="font-style: italic;"&gt;"/path_to_the/nikola_blog/"&lt;/span&gt;
+  &lt;span style="font-weight: bold;"&gt;:tags&lt;/span&gt; '(nikola)
+  &lt;span style="font-weight: bold;"&gt;:init&lt;/span&gt; '(lambda () (pyvenv-workon &lt;span style="font-style: italic;"&gt;"blog"&lt;/span&gt;))
+  &lt;span style="font-weight: bold;"&gt;:kill-signal&lt;/span&gt; 'sigkill)
 </pre></div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Other stuff</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org38a411f" class="outline-2">
+<h2 id="org38a411f">Other stuff</h2>
+<div class="outline-text-2" id="text-org38a411f">
 </div>
-<div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1">Blogger.com import</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-orga0cc864" class="outline-3">
+<h3 id="orga0cc864">Blogger.com import</h3>
+<div class="outline-text-3" id="text-orga0cc864">
 <p>
 You can export your whole site from blogger.com in Settings &gt; Other
 &gt; Import &amp; back up, which creates a single xml file with all your
@@ -288,18 +391,18 @@ plugin.
 </p>
 
 <div class="highlight"><pre><span></span>$ nikola plugin -i import_blogger
-<span class="c1"># This didn't work, because of a missing dependency, so repeat after:</span>
+&lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold; font-style: italic;"</span>&gt;# &lt;/span&gt;&lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold; font-style: italic;"</span>&gt;This didn<span class="err">'</span>t work, because of a missing dependency, so repeat after:&lt;/span&gt;
 $ pip install feedparser
 
-<span class="c1"># do this outside the site directory and copy the posts afterwards</span>
+&lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold; font-style: italic;"</span>&gt;# &lt;/span&gt;&lt;span <span class="nv">style</span><span class="o">=</span><span class="s2">"font-weight: bold; font-style: italic;"</span>&gt;do this outside the site directory and copy the posts afterwards&lt;/span&gt;
 $ nikola import_blogger the_blogger_export.xml
 </pre></div>
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2">Github pages deploy</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-orgb346f96" class="outline-3">
+<h3 id="orgb346f96">Github pages deploy</h3>
+<div class="outline-text-3" id="text-orgb346f96">
 <p>
 Making your site public using Github pages is extremely simple,
 just follow the steps in the Nikola handbook:
@@ -885,38 +988,6 @@ just follow the steps in the Nikola handbook:
 <h2>Porad stavka</h2>
 <div>ta neohlasena stavka, ktera zacala den pred odjezdem do CR, pokracovala vesele dal, takze jsem nasledujici tyden musel jet nekolikrat autobusem... Duvody stavky jsou jednoduche.</div>
 <div>Zamestnanci belgickych drah musi pracovat 36 hodin tydne a ne jako zbytek Belgie 38. Napric tomu ale pracuji 38 (o jak jsou pracoviti) a za to maji 2 dny dovolene navic, jako kompenzaci. A tyhle dva dny jim ted chteji sebrat... Zadne dalsi informace, ktere by aspon trochu snizily absurditu tehle situace jsem bohuzel nenasel. Socialisticke odbory tady maji silne slovo...</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2016/06/navsteva/" class="u-url">Navsteva</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                serycjon
-            </span></p>
-            <p class="dateline"><a href="posts/2016/06/navsteva/" rel="bookmark"><time class="published dt-published" datetime="2016-06-11T13:27:00+02:00" title="2016-06-11 13:27">2016-06-11 13:27</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <h2 style="clear: both;">Anicky navsteva 13.-15.5.</h2>
-<div>Par dni po navratu z Irska uz Anicka koncila Erasmus v Birminghamu a domu jela autobusem z Londyna. Ty jezdi pres Brusel, takze se tu na vikend stavila a ja tak byl konecne navstiven :).</div>
-<div><br></div>
-<h3>Patek 13.</h3>
-<div>Vyzvedl jsem ji v patek pozde vecer na Brussel Noord a za chvilku uz jsme byli v Leuvenu. Bohuzel jsou moji domaci smradlavy hadi, takze tu nikdo nesmi spat. Museli jsme si najit alternativni ubytovani a nakonec to bylo zase pres AirBnB. Nebylo to nic extra, ale nastesti nas po zkusenosti z Londyna nic moc nezaskoci :D.</div>
-<h3>Sobota 14.</h3>
-<div>Rano jsme vyrazili do centra. Nejdriv jsme zamirili do knihovny, kde jsem predtim jeste ani nebyl, takze to bylo rozsirovani obzoru pro oba. Samozrejme jsme se museli vyfotit s broukem na jehle. Sice to neni ani zdaleka tak vysoke, jako ta vec v Dublinu, ale oni tam zas nemaji tak fesneho brouka :D</div>
-<div class="separator" style="clear: both; text-align: center;"><a href="https://4.bp.blogspot.com/-lROheLzzzAM/V1XGdVpQxCI/AAAAAAAAPeQ/uX2tScDmrQcFOiK9Puxth1erOAKeiOWKACKgB/s1600/20160514_123515.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="360" src="https://4.bp.blogspot.com/-lROheLzzzAM/V1XGdVpQxCI/AAAAAAAAPeQ/uX2tScDmrQcFOiK9Puxth1erOAKeiOWKACKgB/s640/20160514_123515.jpg" width="640"></a></div> Knihovna byla pekna, uplne me pritom nejak napadl Umberto Eco (ktery mimochodem zrovna zemrel tak nejak kdyz jsem tu zacinal, jak jsem ted zjistil)... Pak jsme si jeste ve vyssim patre prohledli vystavku o historii, ale na vez jsme nesli, protoze se nam za to nechtelo platit :).<br><br>Po knihovne jsme pokracovali k radnici a tak vubec do toho nejvic centra. Tam jsme narazili na docela super trhy. Byla tam spousta ovoce, ktere jsme si mohli ochutnavat, syry, nakladane olivy a dalsi libustky. Ochutnavka se nam nakonec stala osudnou, protoze jsme nekteri pak uz proste nemohli odolat mangu a tak jsme si ho za nekrestansky peniz koupili :D (zas taaak hrozne drahy to nebylo, ale par dalsich tydnu jsem na nej vydelaval :D). Pak jsme sli na nakup, malou bekinaz a kolem stelly smerem domu (jako ke mne), kde jsme planovali uvarit jidlo. Cestou jsme si jeste uzili Provinciedomein (to je ten prima park), kde jsme mimo jine snedli mango :). Pak uz jsme byli za chvilku doma. Domaci moc neinteragovali a po chvilce odjeli pryc na veceri, nebot mela Carina narozeniny (, jak mi pak Anicka prozradila :D). Udelali jsme si nejakou ryzi s necim a co jsme nesnedli skoncilo v krabicce na nedelni obed. Pak jsme jeste koukali na film a vecer zamirili 'domu'.<br><h3>Nedele 15.</h3>
-<div>Rano jsme zamirili na msi a tesili se na africke zpevy. Kostel byl ale zavreny a akorat jsme tam potkali nejake dva lidi, co taky netusili. Pak jsem si vzpomnel, ze jsou letnice a tedy spolecna mse cele univerzitni farnosti - anglicke, spanelske, francouzske a belgicke casti. Ta byla moudre o hodinu pozdeji ve velke bekinazi, takze jsme tam vklidu stihli dojit a jeste se tam pekne pokochat.</div>
-<div><br></div>
-<div>Mse byla dost bizarni. Vyjukani a zcela netecni belgicani, vcetne jedne naprosto stoicke babky ve sboru, se tu smichali s kytaristy ze spanelska a krepcenim nasich a francouzskych cernochu. Varhanice se nenechala zahanbit a improvizovala do zvuku bubnu zatimco vetsina kostela (belgicani) sedeli zcela nepohnuti a evidentne znudeni :D Byl to fakt zazitek. </div>
-<div><br></div>
-<div>Kazani bylo ve vsech jazycich, ale nebylo to jedno kazani postupne do vsech prelozene, ale bylo to jedno kazani, ve kterem se co chvilku prepnul jazyk :D. Zjistil jsem, ze z agecka porad jeste pamatuju dost spanelstiny, takze jsem rozumel dost v pohode. Samozrejme i francouzsky a vlamsky jsem obcas neco pochytil :). </div>
-<div><br></div>
-<div>Uprostred mse pak nastal presun celeho kostela, jak uz jsem o tom onehda psal, ale az ted jsem to videl nazivo. Sranda :D</div>
-<div><br></div>
-<div>Pak jsme si jeste koupili kolac s prispevkem na zemetresenim postizeny Ecuador a vyrazili na dalsi turistovani.</div>
-<div><br></div>
-<div>Cestou jsme potkali nekolik zarizeni, ktere se ten vikend zjevily vsude po Leuvenu. Krabicka, z ktere vedli dva 'kabely'. Statistika projizdejicich aut?</div>
-<br><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
-<tr><td><a href="https://1.bp.blogspot.com/-ZJzfD7T_2Uc/V1XGdZ0HV_I/AAAAAAAAPeQ/xG73ABgTaU81XxY16ZlzhKEW7k82HBPVwCKgB/s1600/20160515_125510.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="480" src="https://1.bp.blogspot.com/-ZJzfD7T_2Uc/V1XGdZ0HV_I/AAAAAAAAPeQ/xG73ABgTaU81XxY16ZlzhKEW7k82HBPVwCKgB/s640/20160515_125510.jpg" width="640"></a></td></tr>
-<tr><td class="tr-caption" style="font-size: 12.8px;">What The Function? Tusi-li nekdo ucel a zpusob fungovani, dejte mi vedet!</td></tr>
-</tbody></table>Pak jsme sli do kaple sv. Antonia, kde je hrobka patera Damiana, take uz jsem o tom kdysi psal.<br><br>Potom jsme si koupili vstupenky na prohlidku radnice a sli si do vstupni haly knihovny snist obed z krabicky. Mezitim jsme si myslim jeste (tesne, protoze jsem zjistil, ze nemam skoro zadny cash,) dali moc dobrou zmrzlinu (a nebo to bylo nekdy jindy :D). Prohlidka pak byla zajimava tim, ze nam ta pani rikala uplne jine veci, nez kdyz jsem tam byl predtim sam. Take jsme videli jine casti budovy.<br><br>Potom uz byl nejvyssi cas vyrazit 'domu' pro zavazadla a pak na nadrazi, do Brusele a na autobus. Ten zastavil jinde, nez mel, protoze mistni hlavni autobusak (rozumej uplne pitoma ulicka vedle nadrazi) nepojmul naval a dalsi autobus uz se tam proste nevesel. Nastesti jsme ho ale nasli :)
     </div>
     </article>
 </div>
