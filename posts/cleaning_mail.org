@@ -1,0 +1,56 @@
+#+BEGIN_COMMENT
+.. title: Cleaning the gmail mess
+.. slug: cleaning-the-gmail-mess
+.. date: 2017-07-04 00:07:26 CEST+0200
+.. tags: tweaks
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+I have tried to stop using gmail webmail in favour of
+mbsync+imapnotify+mu+mu4e setup recently.  This way, I have all my
+emails in a maildir on my laptop.  When playing with the
+configurations, I have noticed that the size of the maildir is quite
+large - no surprise, given that I did not delete any emails, only mark them
+as read.  
+
+I have decided to try and delete as much crap newsletters
+and other useless stuff filling large part of my inbox.  But how to
+recall all the mailing lists I was ever part of?  Sorting senders by
+number of emails I have received from them could be really useful.
+Unfortunately, this cannot be done in gmail AFAIK, but it should be
+easily done with all the emails available locally.
+
+First, I have written a python script that outputs a list of unique
+sender addresses.
+#+BEGIN_EXAMPLE
+  #!/usr/bin/python
+  import mailbox
+  from email.utils import parseaddr
+
+  senders = []
+  for message in mailbox.Maildir('~/.mail/gmail/[Gmail].All Mail'):
+      sender = message.get('from', None)
+      if sender:
+          senders.append(parseaddr(sender)[1])
+
+  senders = set(senders)
+
+  with open('/tmp/senders.txt', 'w') as fout:
+      fout.write('\n'.join(senders))
+#+END_EXAMPLE
+
+Second, I had to get the number of emails received from each of
+these.  Although this could have been done easily from python, I was
+stupid enough to split it into two tasks :D.
+
+#+BEGIN_EXAMPLE
+$ cat senders.txt | while read mail; do num=`mu find --quiet from:$mail | wc -l`; echo "$num - $mail"; done | sort -n > output.txt
+#+END_EXAMPLE
+
+I have then manually deleted all messages from the guilty senders via
+the gmail webmail (just to make sure I won't mess up).  Wow, such a
+bad solution overall :D.  Needless to say - I have reduced the size of
+the maildir quite significantly (over 2GB).
