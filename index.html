@@ -11,7 +11,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="https://serycjon.github.io/">
 <link rel="next" href="index-5.html" type="text/html">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/org-babel-python-table-header/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/cleaning-the-gmail-mess/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -64,7 +64,77 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/org-babel-python-table-header/" class="u-url">Org-babel python table header</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/cleaning-the-gmail-mess/" class="u-url">Cleaning the gmail mess</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                serycjon
+            </span></p>
+            <p class="dateline"><a href="posts/cleaning-the-gmail-mess/" rel="bookmark"><time class="published dt-published" datetime="2017-07-04T00:07:26+02:00" title="2017-07-04 00:07">2017-07-04 00:07</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/cleaning-the-gmail-mess/#disqus_thread" data-disqus-identifier="cache/posts/cleaning_mail.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>
+I have tried to stop using gmail webmail in favour of
+mbsync+imapnotify+mu+mu4e setup recently.  This way, I have all my
+emails in a maildir on my laptop.  When playing with the
+configurations, I have noticed that the size of the maildir is quite
+large - no surprise, given that I did not delete any emails, only mark them
+as read.  
+</p>
+
+<p>
+I have decided to try and delete as much crap newsletters
+and other useless stuff filling large part of my inbox.  But how to
+recall all the mailing lists I was ever part of?  Sorting senders by
+number of emails I have received from them could be really useful.
+Unfortunately, this cannot be done in gmail AFAIK, but it should be
+easily done with all the emails available locally.
+</p>
+
+<p>
+First, I have written a python script that outputs a list of unique
+sender addresses.
+</p>
+<pre class="example">
+#!/usr/bin/python
+import mailbox
+from email.utils import parseaddr
+
+senders = []
+for message in mailbox.Maildir('~/.mail/gmail/[Gmail].All Mail'):
+    sender = message.get('from', None)
+    if sender:
+        senders.append(parseaddr(sender)[1])
+
+senders = set(senders)
+
+with open('/tmp/senders.txt', 'w') as fout:
+    fout.write('\n'.join(senders))
+</pre>
+
+<p>
+Second, I had to get the number of emails received from each of
+these.  Although this could have been done easily from python, I was
+stupid enough to split it into two tasks :D.
+</p>
+
+<pre class="example">
+$ cat senders.txt | while read mail; do num=`mu find --quiet from:$mail | wc -l`; echo "$num - $mail"; done | sort -n &gt; output.txt
+</pre>
+
+<p>
+I have then manually deleted all messages from the guilty senders via
+the gmail webmail (just to make sure I won't mess up).  Wow, such a
+bad solution overall :D.  Needless to say - I have reduced the size of
+the maildir quite significantly (over 2GB).
+</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/org-babel-python-table-header/" class="u-url">Org-babel python table header</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 serycjon
@@ -205,13 +275,13 @@ Nikola is a static site generator written in python with many neat
 features, here is how I've got it running.
 </p>
 
-<div id="outline-container-org3242198" class="outline-2">
-<h2 id="org3242198">Basic Nikola installation</h2>
-<div class="outline-text-2" id="text-org3242198">
+<div id="outline-container-org65e4623" class="outline-2">
+<h2 id="org65e4623">Basic Nikola installation</h2>
+<div class="outline-text-2" id="text-org65e4623">
 </div>
-<div id="outline-container-orgc10b795" class="outline-3">
-<h3 id="orgc10b795">virtualenv</h3>
-<div class="outline-text-3" id="text-orgc10b795">
+<div id="outline-container-orgad636ae" class="outline-3">
+<h3 id="orgad636ae">virtualenv</h3>
+<div class="outline-text-3" id="text-orgad636ae">
 <p>
 I have never used python virtual environments and installed all the
 packages globally, but since I use python 2.7 and Nikola wants
@@ -249,9 +319,9 @@ After this, it is possible to get inside this environment with
 </div>
 </div>
 
-<div id="outline-container-org16c68fe" class="outline-3">
-<h3 id="org16c68fe">First steps with Nikola</h3>
-<div class="outline-text-3" id="text-org16c68fe">
+<div id="outline-container-org5dcc0a8" class="outline-3">
+<h3 id="org5dcc0a8">First steps with Nikola</h3>
+<div class="outline-text-3" id="text-org5dcc0a8">
 <p>
 Getting started with Nikola is just extremely simple. First install
 it (and the optional extras) with
@@ -278,13 +348,13 @@ a server but also looks for any changes and rebuild the site if necessary.
 </div>
 </div>
 
-<div id="outline-container-orga397ba0" class="outline-2">
-<h2 id="orga397ba0">Getting Emacs involved</h2>
-<div class="outline-text-2" id="text-orga397ba0">
+<div id="outline-container-orga77a982" class="outline-2">
+<h2 id="orga77a982">Getting Emacs involved</h2>
+<div class="outline-text-2" id="text-orga77a982">
 </div>
-<div id="outline-container-org8e39988" class="outline-3">
-<h3 id="org8e39988">Orgmode plugin</h3>
-<div class="outline-text-3" id="text-org8e39988">
+<div id="outline-container-orgfcb0d56" class="outline-3">
+<h3 id="orgfcb0d56">Orgmode plugin</h3>
+<div class="outline-text-3" id="text-orgfcb0d56">
 <p>
 At this point, you can easily start to publish your awesome content
 by calling
@@ -318,9 +388,9 @@ to create a new blog post with pre-generated nikola metadata.
 </div>
 </div>
 
-<div id="outline-container-orgacacc35" class="outline-3">
-<h3 id="orgacacc35">YASnippet post template</h3>
-<div class="outline-text-3" id="text-orgacacc35">
+<div id="outline-container-orgd0befa3" class="outline-3">
+<h3 id="orgd0befa3">YASnippet post template</h3>
+<div class="outline-text-3" id="text-orgd0befa3">
 <p>
 Org-mode with it's tables, babel and other awesome stuff already
 works at this point, but I didn't really like to call the
@@ -358,9 +428,9 @@ a pretty url.
 </div>
 </div>
 
-<div id="outline-container-org656ad8d" class="outline-3">
-<h3 id="org656ad8d">Full management from Emacs</h3>
-<div class="outline-text-3" id="text-org656ad8d">
+<div id="outline-container-org5696241" class="outline-3">
+<h3 id="org5696241">Full management from Emacs</h3>
+<div class="outline-text-3" id="text-org5696241">
 <p>
 The last slightly annoying thing is the need of switching the
 python environment and running <code>nikola auto</code>.  Mike Zamansky has
@@ -388,13 +458,13 @@ simple prodigy-only way.
 </div>
 </div>
 
-<div id="outline-container-org38a411f" class="outline-2">
-<h2 id="org38a411f">Other stuff</h2>
-<div class="outline-text-2" id="text-org38a411f">
+<div id="outline-container-orgce6a785" class="outline-2">
+<h2 id="orgce6a785">Other stuff</h2>
+<div class="outline-text-2" id="text-orgce6a785">
 </div>
-<div id="outline-container-orga0cc864" class="outline-3">
-<h3 id="orga0cc864">Blogger.com import</h3>
-<div class="outline-text-3" id="text-orga0cc864">
+<div id="outline-container-orgf59462f" class="outline-3">
+<h3 id="orgf59462f">Blogger.com import</h3>
+<div class="outline-text-3" id="text-orgf59462f">
 <p>
 You can export your whole site from blogger.com in Settings &gt; Other
 &gt; Import &amp; back up, which creates a single xml file with all your
@@ -412,9 +482,9 @@ $ nikola import_blogger the_blogger_export.xml
 </div>
 </div>
 
-<div id="outline-container-orgb346f96" class="outline-3">
-<h3 id="orgb346f96">Github pages deploy</h3>
-<div class="outline-text-3" id="text-orgb346f96">
+<div id="outline-container-orgd498900" class="outline-3">
+<h3 id="orgd498900">Github pages deploy</h3>
+<div class="outline-text-3" id="text-orgd498900">
 <p>
 Making your site public using Github pages is extremely simple,
 just follow the steps in the Nikola handbook:
@@ -1005,49 +1075,6 @@ just follow the steps in the Nikola handbook:
 <tr><td style="text-align: center;"><a href="https://2.bp.blogspot.com/-hiT7x8CXtIE/V3kMsQI1I5I/AAAAAAAAQhE/TXm7-sHiGpA4I0icQknanYzyFESbGETkACKgB/s1600/20160612_010024.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="480" src="https://2.bp.blogspot.com/-hiT7x8CXtIE/V3kMsQI1I5I/AAAAAAAAQhE/TXm7-sHiGpA4I0icQknanYzyFESbGETkACKgB/s640/20160612_010024.jpg" width="640"></a></td></tr>
 <tr><td class="tr-caption" style="text-align: center;">Ted je konecne jasne, proc je ta predchozi tak divna. Megadlouhe drzatko...</td></tr>
 </tbody></table>Dohlazeni a pak smirglovani zabralo celou vecnost. Nakonec zbyla vyzdoba. Tentokrat jsem se toho nebal a sel jsem do slozitejsich tvaru. (Bal a ruce se mi klepaly silene :D).<br><div class="separator" style="clear: both; text-align: center;"><a href="https://2.bp.blogspot.com/-Qp24klMF5zs/V3kMsc-yW7I/AAAAAAAAQhE/e0z8usw75zgWjVxClaTMdn9SFWIGV1DzwCKgB/s1600/20160612_221544.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="https://2.bp.blogspot.com/-Qp24klMF5zs/V3kMsc-yW7I/AAAAAAAAQhE/e0z8usw75zgWjVxClaTMdn9SFWIGV1DzwCKgB/s640/20160612_221544.jpg" width="640"></a></div> Bylo to slozitejsi, nez se muze zdat. Jednak mam na to dost nevhodny nuz - je fakt dlouhy na tak detailni praci - ale to jsem vyresil zabalenim do novin, abych ho mohl drzet blizko u spicky. Druhak (a to hlavnak) nuz (i kdyz naostreny, jak nejvic jsem dokazal) ma porad sklouzavat ve smeru vlaken dreva, coz obzvlast u oblych tvaru vazne moc nepomaha...<br><div class="separator" style="clear: both; text-align: center;"><a href="https://1.bp.blogspot.com/-79kMZ_Dod_0/V3kMsVDEoYI/AAAAAAAAQhE/aHisOXRLME46K3u4pmbY7ehaBPJ9lfFagCKgB/s1600/20160613_203648.jpg" imageanchor="1"><img border="0" height="480" src="https://1.bp.blogspot.com/-79kMZ_Dod_0/V3kMsVDEoYI/AAAAAAAAQhE/aHisOXRLME46K3u4pmbY7ehaBPJ9lfFagCKgB/s640/20160613_203648.jpg" width="640"></a></div> Nakonec to po par minutach nervydrasajiciho dramatu dopadlo dobre, jenom na stonku kytky je maly zoubek, ale to k tomu patri a hlavne se mi podarilo nikde nepreriznout :).<br><br>Tentokrat jsem pouzil na kolrosing skorici.<br><div class="separator" style="clear: both; text-align: center;"><a href="https://4.bp.blogspot.com/-66llCE9RRlw/V3kMsUbXFyI/AAAAAAAAQhE/GsuSmokhw6cCuySKygOXbcfG6eu7Akq-QCKgB/s1600/20160613_210159.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="https://4.bp.blogspot.com/-66llCE9RRlw/V3kMsUbXFyI/AAAAAAAAQhE/GsuSmokhw6cCuySKygOXbcfG6eu7Akq-QCKgB/s640/20160613_210159.jpg" width="640"></a></div> A nakonec orechovy olej. Doufam, ze casem zatvrdne, jak by mel, ale jde mu to dost pomalu. Taky je to celkem levny olej z colruytu, tak kdo vi, co je to zac.<br><div class="separator" style="clear: both; text-align: center;"><a href="https://4.bp.blogspot.com/-EzfOD-vzOYc/V3kMsStaqxI/AAAAAAAAQhE/bjRU1Op0bpc_Ppx2rGIOY_h5eCu0PLJhwCKgB/s1600/20160613_212338.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="https://4.bp.blogspot.com/-EzfOD-vzOYc/V3kMsStaqxI/AAAAAAAAQhE/bjRU1Op0bpc_Ppx2rGIOY_h5eCu0PLJhwCKgB/s640/20160613_212338.jpg" width="640"></a></div>Den pred Brittinym odjezdem domu jsem ji lzicku dal. Pry najde nejake dobre misto, kde si ji vystavi a posle mi fotku. Takze tech cca 15 hodin co jsem se s tim patlal skonci v supliku, nebo na policce... :I<br><br>Snazil jsem se ji vysvetlit, ze bych byl mnohem radsi, kdyby ji pouzivala (na snidanovou ovesnou kasi docela idealni) a jeste ji to pripomenu, az se s ni za dva tydny naposledy uvidim na dekovnem grilovani, ktere poradaji jeji rodice pro Carinu a Andreho (moje podekovani jsou vsechny ty penize, co jsem tem skrblikum zaplatil za tech pet mesicu :D), a na ktere jsem take pozvany. Tak uvidime :)
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2016/07/stavka-cr-zase-stavka/" class="u-url">Stavka, CR a zase stavka</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                serycjon
-            </span></p>
-            <p class="dateline"><a href="posts/2016/07/stavka-cr-zase-stavka/" rel="bookmark"><time class="published dt-published" datetime="2016-07-03T12:57:00+02:00" title="2016-07-03 12:57">2016-07-03 12:57</time></a></p>
-                <p class="commentline">
-        
-    <a href="posts/2016/07/stavka-cr-zase-stavka/#disqus_thread" data-disqus-identifier="cache/posts/2016/07/stavka-cr-zase-stavka.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="e-content entry-content">
-    <h2 style="clear: both; text-align: left;">Stavka a cesta domu</h2>
-<div style="clear: both; text-align: left;">O vikendu kolem 28.5. se konala oslava dedovych osmdesatin, takze jsem par tydnu pred tim koupil levne letenky a tesil se, ze budu chvilku zase doma. Do Prahy jsem mel letet ve ctvrtek a zpatky potom v utery. Par dni pred odjezdem jsem ale zjistil, ze v to utery je naplanovana v Belgii generalni stavka vseho, takze asi bude docela problem se dostat z letiste zpatky domu. Uvazoval jsem o cyklojizde, ale je to z Leuvenu kolem 70km a taky by me tam dost mozna vojaci nepustili. Navic jsem nevedel, jestli by se tam dalo kolo nechat... Takze nakonec jsem musel tuto volbu vyradit a doufat, ze se stane neco jineho zabavneho, aby bylo o cem vypravet :D. A taky jo.</div>
-<div style="clear: both; text-align: left;"><br></div>
-<div style="clear: both; text-align: left;">Nastal vecer, nastalo jitro, den pred odjezdem. V praci kolega oznamil, ze belgicke drahy zacinaji stavkovat uz ten den. Venku bylo asi moc hezky, tak nechteli cekat do utery. Chaos, chaos chaos. U nas jakztakz jezdil tak kazdy ctvrty vlak, u Valonu nejelo nic. Spousta belgicanu jezdi vlakem kazdy den za praci do Brusele, takze totalni kolaps.</div>
-<div style="clear: both; text-align: left;"><br></div>
-<div style="clear: both; text-align: left;">Ve ctvrtek jsem v praci koupil listky na letistni autobus z Brussel - jih a po tom, co me nalezite vystrasili vsichni kolegove, jsem odesel z prace asi o ctyri hodiny driv, nez jsem puvodne planoval :D. Sef mi jeste nakreslil planek, kde stavi u nadrazi ten autobus na letiste, coz se mi krute vyplatilo.</div>
-<div style="clear: both; text-align: left;"><br></div>
-<div style="clear: both; text-align: left;">Sel jsem na vlak do Brusele a tam to vsechno zacalo. Respektive nezacalo :D Myslel jsem, ze do Brusele se dostanu celkem v pohode a pak bude akorat problem na to letiste, ale drazni nemakacenka meli jiny nazor. Cekal jsem tam asi hodinu a pul a zacalo to byt docela napinave. Na Bruxelles-Midi jsem vybehl z vlaku a bezel, ze by i Forrest zavidel. Zastavil jsem se jenom na par vterin u vojaku, kterych jsem se zeptal, jestli jsou ty busy vazne tam, kde si myslim. No nakonec jsem tam dobehl akorat kdyz ridic zaviral zavazadlovy prostor. Uff, to byl posledni autobus, kterym jsem to mohl prijemne stihnout. Mohl... kdyby celych 60km dalnice nejelo krokem v jednom obrovskem strudlu.</div>
-<div style="clear: both; text-align: left;"><br></div>
-<div style="clear: both; text-align: left;">K gatu jsem dorazil asi 5 minut po zaviracce podle letenky, takze jsem mel jeste chvilku, nez to vubec otevreli a zacali poustet lidi, ale dalsim autobusem uz by mi to uletelo. Jak uz jsem asi psal, jeste pred security scanem jsem potkal Bursika u plakatku s 'retard important' :). Letela s nami i skupina chlapiku - rozlucka se svobodou jednoho z nich. Byl v zupanu, pod kterym mel jednodilne plavky a dostaval od svych kumpanu ukoly jako vyfotit se, jak zveda nekterou z nebohych spolucestujicich v naruci. Pobaveni bylo vseobecne :)</div>
-<div style="clear: both; text-align: left;"><br></div>
-<div style="clear: both; text-align: left;">V Praze jsem hned po pristani sedl na autobus, svezl se na Nadrazi Veleslavin a musel uznat, ze ten vlez do metra je vazne mimoradne pitomy. Pak rychle na Staromestskou a do Skautskeho Institutu, kde prave koncilo planovani tabora. Surprajz surprajz :) bohuzel uz cast Udu odesla, ale se zbytkem jsme sli jeste na pivo :)</div>
-<div style="clear: both; text-align: left;"><br></div>
-<div style="clear: both; text-align: left;">Byl to extremne kvalitni vecer :D. Nejdriv jsme asitak hodinu a pul bloudili Prahou a nemohli se rozhodnout, kam chceme jit a pak jsme zapadli nekam, kde meli Plzen asi za 29, nebo tak neco. Bylo to krajne podezrele, ale tak co. Cena piva se vyjasnila v zapeti, kdyz jsme dostali jidelni listek (vetsina z nas mela dost hlad, ja sileny). Normalni jidla stala tak 250, takze jsme si nasli nejlevnejsi palacinky za 80, nebo tak nejak, šalatik ( :) ), hranolky a tak. Kdyz jsme vylozili sva prani cisnici, zacala ta prava legrace, nebot nemohla prekousnout tak nizke utraty a zacala se paradne rozcilovat, ze prilohy samotne nedelaji atd... tak si jeden z nas objednal salat a jako prilohu hranolky a pak jsme si to rozdelili (nebo tak nejak). Byla uplne ruda vzteky :D. Paradne jsme se bavili... Pak nam nakonec jeste odmitala moznost zaplatit jednotlive, nebot to psala na jeden ucet, ale nakonec uznala, ze jestli chce penize, tak musi ustoupit :D</div>
-<div style="clear: both; text-align: left;"><br></div>
-<h2 style="clear: both; text-align: left;">Oslava</h2>
-<div>byla paradni :) Alegoricke vozy, cesta kolem sveta, ziva muzika, ohen, prima pocasi a super lidove :)</div>
-<div style="clear: both; text-align: left;"><br></div>
-<div class="separator" style="clear: both; text-align: center;"><a href="https://2.bp.blogspot.com/-ofeq3iP9jJE/V3jwJ1p1UqI/AAAAAAAAQgg/C-F4YAyJFnwSnpCdYo2yCvzxq9KGHwrBwCLcB/s1600/IMG_5331.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="426" src="https://2.bp.blogspot.com/-ofeq3iP9jJE/V3jwJ1p1UqI/AAAAAAAAQgg/C-F4YAyJFnwSnpCdYo2yCvzxq9KGHwrBwCLcB/s640/IMG_5331.JPG" width="640"></a></div>
-<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
-<tr><td style="text-align: center;"><a href="https://1.bp.blogspot.com/-WrJNiORjaoM/V3jxmZIFYfI/AAAAAAAAQgs/gWFejREnM38OZ77BwQJQNY2I-CGvrA27ACKgB/s1600/20160529_115536.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="480" src="https://1.bp.blogspot.com/-WrJNiORjaoM/V3jxmZIFYfI/AAAAAAAAQgs/gWFejREnM38OZ77BwQJQNY2I-CGvrA27ACKgB/s640/20160529_115536.jpg" width="640"></a></td></tr>
-<tr><td class="tr-caption" style="text-align: center;">V nedeli po msi jsme se sli kouknout na Pisecke sochy z pisku :)</td></tr>
-</tbody></table>V nedeli mi cestou do Prahy zavolali spoluzaci, takze jsem ani nesel domu a rovnou upaloval na Strahov. Pekne jsme popovidali, trochu pojedli a popili a i fotbalek zahrali :).<br><br><h2>Navrat</h2>
-<div>domu jsem odvezl hlavne pohorky, protoze jsem je stejnak vubec nepotreboval a zpatky jsem si privezl helmu a pumpicku :). Helmu jsem si musel trochu zkraslit izolepou, ale myslim, ze je ted lepsi, nez kdy predtim. Konecne muzu zacit jezdit do prace na kole (haha, zatim jsem to jeste nikdy neudelal a asi na to nedojde vubec :D)</div>
-<div class="separator" style="clear: both; text-align: center;"><a href="https://3.bp.blogspot.com/-J0hVdq6Txbg/V3jxmSW56BI/AAAAAAAAQgs/wQwNhmadbVEr4470UoqZuyxo3mrAzAbfgCKgB/s1600/20160604_161820.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="https://3.bp.blogspot.com/-J0hVdq6Txbg/V3jxmSW56BI/AAAAAAAAQgs/wQwNhmadbVEr4470UoqZuyxo3mrAzAbfgCKgB/s640/20160604_161820.jpg" width="640"></a></div> A kdyby precijen jo, nemusite se bat, ze bych tu zhubnul a zeslabnul (babi :) ). Vetsinou mam problem, aby se mi vsechno veslo na jeden talir :)<br><div class="separator" style="clear: both; text-align: center;"><a href="https://3.bp.blogspot.com/-i2wmjcTxR7w/V3jxmURcdnI/AAAAAAAAQgs/I2nRjrc39ewKJnbOa_ej-ZhHQnqffwpxACKgB/s1600/20160604_212512.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="https://3.bp.blogspot.com/-i2wmjcTxR7w/V3jxmURcdnI/AAAAAAAAQgs/I2nRjrc39ewKJnbOa_ej-ZhHQnqffwpxACKgB/s640/20160604_212512.jpg" width="640"></a></div>
-<h2>Porad stavka</h2>
-<div>ta neohlasena stavka, ktera zacala den pred odjezdem do CR, pokracovala vesele dal, takze jsem nasledujici tyden musel jet nekolikrat autobusem... Duvody stavky jsou jednoduche.</div>
-<div>Zamestnanci belgickych drah musi pracovat 36 hodin tydne a ne jako zbytek Belgie 38. Napric tomu ale pracuji 38 (o jak jsou pracoviti) a za to maji 2 dny dovolene navic, jako kompenzaci. A tyhle dva dny jim ted chteji sebrat... Zadne dalsi informace, ktere by aspon trochu snizily absurditu tehle situace jsem bohuzel nenasel. Socialisticke odbory tady maji silne slovo...</div>
     </div>
     </article>
 </div>

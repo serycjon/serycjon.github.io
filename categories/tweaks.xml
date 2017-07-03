@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>serycjon's blog (Posts about tweaks)</title><link>https://serycjon.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://serycjon.github.io/categories/tweaks.xml" rel="self"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:jonas.serych@gmail.com"&gt;serycjon&lt;/a&gt; </copyright><lastBuildDate>Mon, 03 Jul 2017 22:38:00 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Cleaning the gmail mess</title><link>https://serycjon.github.io/posts/cleaning-the-gmail-mess/</link><dc:creator>serycjon</dc:creator><description>&lt;p&gt;
+I have tried to stop using gmail webmail in favour of
+mbsync+imapnotify+mu+mu4e setup recently.  This way, I have all my
+emails in a maildir on my laptop.  When playing with the
+configurations, I have noticed that the size of the maildir is quite
+large - no surprise, given that I did not delete any emails, only mark them
+as read.  
+&lt;/p&gt;
+
+&lt;p&gt;
+I have decided to try and delete as much crap newsletters
+and other useless stuff filling large part of my inbox.  But how to
+recall all the mailing lists I was ever part of?  Sorting senders by
+number of emails I have received from them could be really useful.
+Unfortunately, this cannot be done in gmail AFAIK, but it should be
+easily done with all the emails available locally.
+&lt;/p&gt;
+
+&lt;p&gt;
+First, I have written a python script that outputs a list of unique
+sender addresses.
+&lt;/p&gt;
+&lt;pre class="example"&gt;
+#!/usr/bin/python
+import mailbox
+from email.utils import parseaddr
+
+senders = []
+for message in mailbox.Maildir('~/.mail/gmail/[Gmail].All Mail'):
+    sender = message.get('from', None)
+    if sender:
+        senders.append(parseaddr(sender)[1])
+
+senders = set(senders)
+
+with open('/tmp/senders.txt', 'w') as fout:
+    fout.write('\n'.join(senders))
+&lt;/pre&gt;
+
+&lt;p&gt;
+Second, I had to get the number of emails received from each of
+these.  Although this could have been done easily from python, I was
+stupid enough to split it into two tasks :D.
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+$ cat senders.txt | while read mail; do num=`mu find --quiet from:$mail | wc -l`; echo "$num - $mail"; done | sort -n &amp;gt; output.txt
+&lt;/pre&gt;
+
+&lt;p&gt;
+I have then manually deleted all messages from the guilty senders via
+the gmail webmail (just to make sure I won't mess up).  Wow, such a
+bad solution overall :D.  Needless to say - I have reduced the size of
+the maildir quite significantly (over 2GB).
+&lt;/p&gt;</description><category>tweaks</category><guid>https://serycjon.github.io/posts/cleaning-the-gmail-mess/</guid><pubDate>Mon, 03 Jul 2017 22:07:26 GMT</pubDate></item></channel></rss>
